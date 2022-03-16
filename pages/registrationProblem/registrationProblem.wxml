@@ -1,0 +1,5 @@
+<view class="pageWrap">
+  <!-- 背景图 -->
+  <public-bgc></public-bgc>
+  <view class="userAuthorizationButton" wx:if="{{!isAuthorization}}" bindtap="userAuthorization">点击授权用户信息</view>
+</view>

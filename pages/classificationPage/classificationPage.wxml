@@ -1,0 +1,26 @@
+<view class="pageWrap">
+  <!-- 背景图 -->
+  <public-bgc></public-bgc>
+  <!-- 页面内容 -->
+  <view class="pageContent">
+    <!-- 搜索 -->
+    <!-- <search-inp></search-inp> -->
+    <!-- 分类页面 -->
+    <view class="classificationContentWrap">
+      <!-- 分类导航 -->
+      <view class="navigationWrap">
+        <view wx:for="{{navigationTabList}}" wx:key="index" class="navigationTab {{navTabIndex === index ? 'navigationTabSelColor' : 'navigationTabColor'}}" data-id="{{item.navId}}" data-index="{{index}}" bindtap="selNavTab">{{item.dec}}</view>
+      </view>
+      <!-- 分类详情 -->
+      <view class="contentWrap">
+        <view class="navContentWrap">
+          <view class="classificationContent" wx:for="{{navigationTabList[navTabIndex].contentList}}" wx:key="index" wx:for-item="navContent" data-nav-content-id="{{navContent.contentId}}" bindtap="goClassDetailsList">
+            <image class="navContentImg" src="{{navContent.contentUrl}}"></image>
+            <view class="navContentDec">{{navContent.contentDec}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+</view>

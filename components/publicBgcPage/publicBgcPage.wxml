@@ -1,0 +1,4 @@
+<view class="myHomeBgcWrap">
+  <view class="bgcMask"></view>
+  <image class="myHomeBgc" src="{{myHomeBgc}}"></image>
+</view>

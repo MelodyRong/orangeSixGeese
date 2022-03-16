@@ -1,0 +1,79 @@
+.searchWrap {
+  display: flex;
+  align-items:center;
+  padding: 20rpx 30rpx;
+}
+
+.headImg {
+  width: 70rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  margin-right: 30rpx;
+}
+
+.searchInp {
+  width: 100%;
+}
+
+.sliderListWrap {
+  margin-top: 20rpx;
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 0 20rpx;
+}
+
+.sliderBtn {
+  font-size: 32rpx;
+  margin-right: 20rpx;
+}
+
+.selSlider {
+  width: 50rpx;
+  height: 6rpx;
+  background-color: #ea9518;
+  border-radius: 5rpx;
+  position: relative;
+  margin: 10rpx auto 0 auto;
+}
+
+.scrollViewWrap {
+  margin-top: 20rpx;
+  padding: 0 20rpx ;
+}
+
+.scroll-view {
+  white-space: nowrap;
+  font-size: 32rpx;
+}
+
+.scroll-view-item {
+  width: 100%;
+  height: 300rpx;
+  display: inline-block;
+  margin-right: 20rpx;
+  position: relative;
+}
+
+/* 发帖 */
+.addPostingWrap {
+  position: fixed;
+  right: 0;
+  bottom: 100rpx;
+}
+
+.addPostingImg {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.publishedStyle {
+  text-align: center;
+  padding: 30rpx 0;
+  font-size: 28rpx;
+  color: #ea9518;
+  border-bottom: 2rpx solid #f2f2f2;
+}
+
+.cancelBtn {
+  color: #f30c0c;
+}

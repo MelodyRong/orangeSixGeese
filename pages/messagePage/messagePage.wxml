@@ -1,0 +1,76 @@
+<view class="pageWrap">
+  <!-- 背景图 -->
+  <public-bgc></public-bgc>
+  <!-- 页面内容 -->
+  <view class="pageContent">
+    <view class="messageList">
+      <!-- @我 -->
+      <view class="aboutMyWrap">
+        <image src="{{aboutMyIcon}}" class="mesHeadImg"></image>
+        <view class="mesNameWrap">
+          <view class="mesNameText">@我的</view>
+          <view class="mesWarn">
+            <view class="mesNum">+{{mesNum}}</view>
+            <image src="{{triangleImg}}" class="triangleImg"></image>
+          </view>
+        </view>
+      </view>
+      <!-- 评论 -->
+      <view class="commentsWrap">
+        <image src="{{commentsImgIcon}}" class="mesHeadImg"></image>
+        <view class="mesNameWrap">
+          <view class="mesNameText">评论</view>
+          <view class="mesWarn">
+            <view class="mesNum">+{{mesNum}}</view>
+            <image src="{{triangleImg}}" class="triangleImg"></image>
+          </view>
+        </view>
+      </view>
+      <!-- 点赞 -->
+      <view class="giveLikeWrap">
+        <image src="{{giveLikeIcon}}" class="mesHeadImg"></image>
+        <view class="mesNameWrap">
+          <view class="mesNameText">点赞</view>
+          <view class="mesWarn">
+            <view class="mesNum">+{{mesNum}}</view>
+            <image src="{{triangleImg}}" class="triangleImg"></image>
+          </view>
+        </view>
+      </view>
+      <!-- 系统消息 -->
+      <view class="giveLikeWrap">
+        <image src="{{mesHeaderIcon}}" class="mesHeadImg"></image>
+        <view class="mesNameWrap">
+          <view class="mesNameText">系统消息</view>
+          <view class="mesWarn">
+            <view class="mesNum">+{{mesNum}}</view>
+            <image src="{{triangleImg}}" class="triangleImg"></image>
+          </view>
+        </view>
+      </view>
+      <!-- 消息 -->
+      <view class="messageListWrap">
+        <view class="mesList" wx:for="{{mesList}}" wx:key="index">
+          <!-- 头像 -->
+          <image src="{{item.mesHeaderImg}}" class="mesHeadImg"></image>
+          <!-- 消息内容 -->
+          <view class="mesContentWrap">
+            <view class="mesContentTitleWrap">
+              <!-- 消息人名称 -->
+              <view class="mesName">{{item.mesName}}</view>
+              <!-- 最后一条消息时间 -->
+              <view class="lastMesTime">{{item.mewTime}}</view>
+            </view>
+            <view class="mesDetailsWrap">
+              <!-- 如果是群消息，未读显示未读条数 -->
+              <!-- 最后一条消息内容 -->
+              <view class="">{{item.lastMesSendeContent}}</view>
+              <!-- 是否未读 -->
+              <view class="unread"></view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

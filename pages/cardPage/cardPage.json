@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "guess-like": "/components/guessLike/guessLike"
+  }
+}

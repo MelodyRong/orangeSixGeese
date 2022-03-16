@@ -1,0 +1,9 @@
+.searchInpWrap {
+  height: 60rpx;
+  border-radius: 45rpx;
+  border: 2rpx solid #ea9518;
+  color: #ea9518;
+  font-size: 28rpx;
+  line-height: 60rpx;
+  padding: 0 20rpx;
+}

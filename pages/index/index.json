@@ -1,0 +1,13 @@
+{
+  "usingComponents": {
+    "home-focus": "/components/homeFocusPage/homeFocusPage",
+    "home-found": "/components/homeFoundPage/homeFoundPage",
+    "home-topic": "/components/homeTopicPage/homeTopicPage",
+    "bottom-frame":"/components/bottomFrame/bottomFrame"
+  },
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "首页",
+  "backgroundColor": "#eeeeee",
+  "backgroundTextStyle": "light"
+}

@@ -1,0 +1,1 @@
+<view class="searchInpWrap" bindtap="search">搜索商品、店主、帖子</view>

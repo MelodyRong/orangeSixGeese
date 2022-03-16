@@ -1,0 +1,71 @@
+<view class="pageWrap">
+  <!-- 背景图 -->
+  <public-bgc></public-bgc>
+  <!-- 页面内容 -->
+  <view class="pageContent">
+    <!-- 购物车数据 -->
+    <view class="cardList">
+      <view class="cardTitleWrap">
+        <view class="cardTotalNum">
+          <text class="cardText">购物车</text>
+          <text class="cardTotalNum">({{cardTotalNum}})</text>
+        </view>
+        <view class="cardEdit" bindtap="cardEdit">{{isEdit ? '完成' : '编辑'}}</view>
+      </view>
+      <!--  购物车商品数据    -->
+      <view class="cardListWrap">
+        <view class="cardStoreListWrap" wx:for="{{cardList}}" wx:for-index="storeIndex" wx:key="storeIndex">
+          <!-- 店铺名称 -->
+          <view class="storeNameWrap" bindtap="goStore">
+            <image class="selAllIcon" src="{{item.isSelStore ? selAll : noSelAllW }}" catchtap="storeSelAll" data-stroe-index="{{storeIndex}}"></image>
+            <view class="storeName">{{item.stroeName}}</view>
+            <image src="{{triangleImg}}" class="triangleImg"></image>
+          </view>
+          <!-- 商品列表 -->
+          <view class="cardCommodityListWrap">
+            <view class="cardCommodityList" wx:for="{{item.goodsList}}" wx:for-item="goodsItem" wx:for-index="goodsIndex" wx:key="goodsIndex" data-store-index="{{storeIndex}}" data-goods-index="{{goodsIndex}}" data-goods-id="{{goodsId}}" bindtap="goGoodsDetails">
+              <image class="selAllIcon" src="{{goodsItem.isSelGoods ? selAll : noSelAllW }}" catchtap="goodsSelAll" data-store-index="{{storeIndex}}" data-goods-index="{{goodsIndex}}"></image>
+              <view class="goodsDetailWrap">
+                <image src="{{goodsItem.goodsImg}}" class="goodsImg"></image>
+                <view class="goodsDetails">
+                  <view class="goodsName">{{goodsItem.goodsName}}</view>
+                  <view class="goodsSpecification">{{goodsItem.goodsSpecification}}</view>
+                  <view class="goodsPriceNumWrap">
+                    <!-- 商品价格 -->
+                    <view class="goodsPrice">
+                      <text class="goodsPriceSymbol">￥</text>
+                      <text class="goodsSettlementPrice">{{goodsItem.goodsPrice}}</text>
+                    </view>
+                    <!-- 商品数量 -->
+                    <view class="goodsNumWrap">
+                      <image src="{{subtractIcon}}" class="goodsNumIcon" bindtap="goodsNumChange" data-store-index="{{storeIndex}}" data-goods-index="{{goodsIndex}}" data-type="0" data-goods-num="{{goodsItem.goodsNum}}"></image>
+                      <text class="goodsNumInp">{{goodsItem.goodsNum}}</text>
+                      <image src="{{addIcon}}" class="goodsNumIcon" bindtap="goodsNumChange" data-store-index="{{storeIndex}}" data-goods-index="{{goodsIndex}}" data-type="1"></image>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 猜你喜欢 -->
+    <guess-like></guess-like>
+    <!-- 全选结算栏 -->
+    <view class="settlementWrap">
+      <view class="selectAll" bindtap="selectAll">
+        <image class="selectAllImg" src="{{isSelectAll ? selAll : '/images/notChoose.png'}}"></image>
+        <text class="{{isSelectAll ? 'selAllTextStyle' : ''}}">全选</text>
+      </view>
+      <view class="settlementBtnWrap">
+        <view class="combinedPriceWrap" wx:if="{{!isEdit}}">
+          <text class="combined">合计:</text>
+          <text class="priceSymbol">￥</text>
+          <text class="settlementPrice">{{totalAmount}}</text>
+        </view>
+        <view class="settlementBtn" bindtap="handleBtn">{{isEdit ? '删除' : '结算'}}({{selCardNum}})</view>
+      </view>
+    </view>
+  </view>
+</view>

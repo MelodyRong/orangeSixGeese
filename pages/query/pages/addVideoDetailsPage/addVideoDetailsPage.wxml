@@ -1,0 +1,22 @@
+<view class="pageWrap">
+  <!-- 背景图 -->
+  <public-bgc></public-bgc>
+  <!-- 页面内容 -->
+  <view class="pageContent">
+    <!-- 下一步操作 -->
+    <view class="nexStepWrap">
+      <!-- 数据数量 -->
+      <view class="dataNum">{{currentNum}}/{{imgVidoeList.length}}</view>
+      <!-- 下一步操作 -->
+      <view class="nextStep" bindtap="nextStep">下一步</view>
+    </view>
+    <!-- 选中的图片、视频 -->
+    <swiper class="imgVideoWrap" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" bindchange="swiperChange">
+        <block class="imgVideo" wx:for="{{vidoeList}}" wx:key="index">
+          <swiper-item>
+            <video class="selVideo" src="{{item.tempFilePath}}" show-play-btn="false"></video>
+          </swiper-item>
+        </block>
+      </swiper>
+  </view>
+</view>

@@ -1,0 +1,127 @@
+.draftReleasedWrap {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 30rpx;
+}
+
+.draftReleasedOuterLayer {
+  margin-left: auto;
+  display: flex;
+}
+
+.draftBtnWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 30rpx;
+}
+
+.draftImg {
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 10rpx;
+}
+
+.draftText {
+  font-size: 28rpx;
+  color: #ea9518;
+}
+
+.releasedBtnWrap {
+  width: 100rpx;
+  height: 50rpx;
+  border-radius: 10rpx;
+  background-color: #ffffff;
+  color: #ea9518;
+  font-size: 28rpx;
+  text-align: center;
+  line-height: 50rpx;
+}
+
+.thumbnailWrap {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 0 20rpx;
+  overflow-x: auto;
+}
+
+.thumbnailList {
+  flex-shrink: 0;
+}
+
+.thumbnail {
+  flex-shrink: 0;
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 20rpx;
+  margin-right: 15rpx;
+}
+
+.thumbnailAddWrap {
+  flex-shrink: 0;
+  width: 150rpx;
+  height: 150rpx;
+  background-color: rgba(255, 255, 255, .4);
+  border-radius: 20rpx;
+  position: relative;
+}
+
+.thumbnailAddImg {
+  flex-shrink: 0;
+  position: relative;
+  width: 50rpx;
+  height: 50rpx;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* 查看大图，删除图片弹窗 */
+.text {
+  height: 100rpx;
+  text-align: center;
+  line-height: 100rpx;
+  color: #000000;
+  font-size: 28rpx;
+}
+
+.delText {
+  color: #e63030;
+}
+
+.delBottom {
+  height: 20rpx;
+  background-color: #f2f2f2;
+}
+/* 删除图片中间弹窗 */
+.delMaskWrap {
+  text-align: center;
+  font-size: 32rpx;
+}
+
+.delTitle {
+  padding: 40rpx 0;
+  color: #000000;
+  font-weight: 600;
+  border-bottom: 2rpx solid #f2f2f2;
+}
+
+.delBtnWrap {
+  display: flex;
+  flex-wrap:wrap;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+.delCancel {
+  flex:1;
+  text-align: center;
+  color: #000000;
+  border-right: 2rpx solid #f2f2f2;
+}
+
+.delConfirm {
+  flex:1;
+  text-align: center;
+  color: #ea9518;
+}

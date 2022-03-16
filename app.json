@@ -1,0 +1,97 @@
+{
+  "pages": [
+    "pages/registrationProblem/registrationProblem",
+    "pages/index/index",
+    "pages/classificationPage/classificationPage",
+    "pages/messagePage/messagePage",
+    "pages/cardPage/cardPage",
+    "pages/myHome/myHome"
+  ],
+  "tabBar": {
+    "color":"#666666",
+    "selectedColor":"#ea9518",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/homePage.png",
+        "selectedIconPath": "images/selHomePage.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/classificationPage/classificationPage",
+        "iconPath": "images/classificationIcon.png",
+        "selectedIconPath": "images/selClassificationIcon.png",
+        "text": "分类"
+      },
+      {
+        "pagePath": "pages/messagePage/messagePage",
+        "iconPath": "images/message.png",
+        "selectedIconPath": "images/selMessage.png",
+        "text": "消息"
+      },
+      {
+        "pagePath": "pages/cardPage/cardPage",
+        "iconPath": "images/card.png",
+        "selectedIconPath": "images/selCard.png",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "pages/myHome/myHome",
+        "iconPath": "images/myHome.png",
+        "selectedIconPath": "images/selMyHome.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "subPackages": [
+    {
+      "root": "pages/add",
+      "pages": [
+        "pages/addPage/addPage"
+      ]
+    },
+    {
+      "root": "pages/mall",
+      "pages": [
+        "pages/myStorePage/myStorePage",
+        "pages/orderListPage/orderListPage",
+        "pages/refundAfterPage/refundAfterPage",
+        "pages/classDetailsList/classDetailsList"
+      ]
+    },
+    {
+      "root": "pages/query",
+      "pages": [
+        "pages/signInPage/signInPage",
+        "pages/settingPage/settingPage",
+        "pages/myIntegralPage/myIntegralPage",
+        "pages/myGiveLikePage/myGiveLikePage",
+        "pages/myCollectionPage/myCollectionPage",
+        "pages/myFansPage/myFansPage",
+        "pages/myFocusOnPage/myFocusOnPage",
+        "pages/myFootprintPage/myFootprintPage",
+        "pages/myPostPage/myPostPage",
+        "pages/myContactUsPage/myContactUsPage",
+        "pages/searchPage/searchPage",
+        "pages/myDraftPage/myDraftPage",
+        "pages/addPostDetailsPage/addPostDetailsPage",
+        "pages/addVideoDetailsPage/addVideoDetailsPage",
+        "pages/helpFeedbackPage/helpFeedbackPage"
+      ]
+    }
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "橘六雁",
+    "navigationBarTextStyle": "black"
+  },
+  "usingComponents": {
+    "public-bgc": "/components/publicBgcPage/publicBgcPage",
+    "search-inp": "/components/searchPage/searchPage"
+  },
+  "debug": true,
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

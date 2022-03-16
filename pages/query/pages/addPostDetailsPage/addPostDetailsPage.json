@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "bottomFrame":"/components/bottomFrame/bottomFrame",
+    "contentFrame":"/components/contentFrame/contentFrame"
+  }
+}

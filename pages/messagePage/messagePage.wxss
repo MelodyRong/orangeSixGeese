@@ -1,0 +1,90 @@
+.messageList {
+  width: 94%;
+  height: 96vh;
+  overflow-y: scroll;
+  margin: 2vh auto;
+  background-color: rgba(255, 255, 255, .8);
+  border-radius: 20rpx;
+}
+
+.aboutMyWrap, .commentsWrap, .giveLikeWrap, .mesList {
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 0 0 10rpx;
+}
+
+.mesHeadImg {
+  width: 90rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin-right: 5rpx;
+  vertical-align: baseline;
+}
+
+.mesNameWrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid #e3e5e9;
+  padding-right: 10rpx;
+}
+
+.mesNameText {
+  font-size: 36rpx;
+  color: #ea9518;
+}
+
+.mesWarn {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+.mesNum {
+  text-align: center;
+  color: red;
+  font-size: 24rpx;
+}
+
+.mesContentWrap {
+  width: 100%;
+  height: 100%;
+  border-bottom: 1rpx solid #e3e5e9;
+  padding-right: 10rpx;
+}
+
+.mesContentTitleWrap {
+  display: flex;
+  align-items: center;
+}
+
+.mesName {
+  color: #ea9518;
+  font-size: 36rpx;
+}
+
+.lastMesTime {
+  margin-left: auto;
+  margin-right: 10rpx;
+  color: #666666;
+  font-size: 24rpx;
+}
+
+.mesDetailsWrap {
+  color: #666666;
+  font-size: 24rpx;
+  display: flex;
+}
+
+.unread {
+  margin-left: auto;
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+  background-color: red;
+  margin-right: 10rpx;
+}
+
+

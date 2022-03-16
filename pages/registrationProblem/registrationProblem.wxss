@@ -1,0 +1,13 @@
+.userAuthorizationButton {
+  position: relative;
+  width: 300rpx;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  border-radius: 30rpx;
+  background-color: rgb(109,169,52);
+  color: #ffffff;
+  font-size: 14px;
+  margin: 100rpx auto;
+  z-index: 2;
+}

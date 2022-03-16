@@ -1,0 +1,45 @@
+<view class="pageWrap">
+  <!-- 背景图 -->
+  <public-bgc></public-bgc>
+  <!-- 页面内容 -->
+  <view class="pageContent">
+    <!-- 存草稿，发布 -->
+    <view class="draftReleasedWrap">
+      <view class="draftReleasedOuterLayer">
+        <view class="draftBtnWrap">
+          <image class="draftImg" src="/images/draft.png"></image>
+          <text class="draftText">存草稿</text>
+        </view>
+        <view class="releasedBtnWrap">发布</view>
+      </view>
+    </view>
+    <!-- 缩略图 -->
+    <view class="thumbnailWrap">
+      <!-- 相册选中的数据 -->
+      <view class="thumbnailList">
+        <image class="thumbnail" wx:for="{{addPostList}}" wx:key="index" src="{{item.tempFilePath}}" bindtap="popup" data-index="{{index}}" data-img-url="{{item.tempFilePath}}"></image>
+      </view>
+      <!-- 如果数据小于9张，则显示相机图标可继续添加 -->
+      <view class="thumbnailAddWrap" wx:if="{{addPostList.length < 9}}" bindtap="thumbnailAdd">
+        <image class="thumbnailAddImg" src="/images/camera.png"></image>
+      </view>
+    </view>
+    <!-- 底部弹窗 (点击图片显示查看大图或删除图片弹窗)-->
+    <bottomFrame id="bottomFrame">
+      <view class="text" bindtap="previewImg">查看大图</view>
+      <view class="text delText" bindtap="delImg">删除</view>
+      <view class="delBottom"></view>
+      <view class="text" bindtap='hideFrame'>取消</view>
+    </bottomFrame>
+    <!-- 中间弹窗(确认删除图片弹窗) -->
+    <contentFrame id="contentFrame">
+      <view class="delMaskWrap">
+        <view class="delTitle">确认删除这张图片吗？</view>
+        <view class="delBtnWrap">
+          <view class="delCancel" bindtap="delCancel">取消</view>
+          <view class="delConfirm" bindtap="delConfirm">确认</view>
+        </view>
+      </view>
+    </contentFrame>
+  </view>
+</view>

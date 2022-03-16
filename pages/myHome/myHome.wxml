@@ -1,0 +1,63 @@
+<view class="pageWrap">
+  <!-- 背景图 -->
+  <public-bgc></public-bgc>
+  <!-- 我的页面 -->
+  <view class="pageContent myPageView">
+    <!-- 个人资料简介 -->
+    <view class="personalInfo">
+      <!-- 头像 -->
+      <view class="infoHeadImageWrap">
+        <image class="headImage" src="{{userInfo.avatarUrl}}"></image>
+      </view>
+      <!-- 用户名+id -->
+      <view class="userNameIdWrap">
+        <view class="userName">{{userInfo.nickName}}</view>
+        <view class="userId">橘ID：{{userId}}</view>
+      </view>
+      <view class="operationWrap">
+        <!-- 签到 -->
+        <image class="publicImg signImg" src="{{signInImg}}" bindtap="goNextPage" data-types="1"></image>
+        <!-- 设置 -->
+        <image class="publicImg settingMessageImg" src="{{settingImg}}" bindtap="goNextPage" data-types="2"></image>
+        <!-- 消息 -->
+        <image class="publicImg settingMessageImg" src="{{messageImg}}" bindtap="goNextPage" data-types="3"></image>
+      </view>
+    </view>
+    <!-- 功能类目(积分，点赞，收藏，粉丝，关注，足迹) -->
+    <view class="publicFun funListWrap">
+      <view class="funList" wx:for="{{imgList[0]}}" wx:key="index" bindtap="goNextPage" data-types="{{item.types}}">
+        <image src="{{item.imgUrl}}" class="funIconStyel"></image>
+        <view class="funText">{{item.text}}</view>
+      </view>
+    </view>
+    <!-- 订单类目(待付款，待发货，待收货，待评价，退款/售后) -->
+    <view class="orderWrapStyle">
+      <view class="myOrderFunWrap">
+        <view class="myOrder">我的订单</view>
+        <view class="allOrderWrap" bindtap="goNextPage" data-types="10" data-order-status="01">
+          <text class="allOrder">全部订单</text>
+          <image class="triangleImg" src="{{triangleImg}}"></image>
+        </view>
+      </view>
+      <view class="publicFun orderListFunWrap">
+        <view class="funList" wx:for="{{imgList[1]}}" wx:key="index" bindtap="goNextPage" data-types="{{item.types}}" data-order-status="{{item.status}}">
+          <image src="{{item.imgUrl}}" class="funIconStyel"></image>
+          <view class="funText">{{item.text}}</view>
+        </view>
+      </view>
+    </view>
+    <!-- 其他功能(发帖，店铺，联系我们) -->
+    <view class="otherFunListWrap">
+      <view class="otherFunPublicStyle" wx:for="{{imgList[2]}}" wx:key="index" bindtap="goNextPage" data-types="{{item.types}}">
+        <view class="funImgName">
+          <image class="otherFunImg" src="{{item.imgUrl}}"></image>
+          <view class="otherFunName">{{item.text}}</view>
+        </view>
+        <image class="triangleImg" src="{{triangleImg}}"></image>
+      </view>
+    </view>
+    <!-- 猜你喜欢 -->
+    <view class="likeWrap">
+    </view>
+  </view>
+</view>

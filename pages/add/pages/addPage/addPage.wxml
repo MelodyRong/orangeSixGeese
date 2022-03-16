@@ -1,0 +1,30 @@
+<view class="pageWrap">
+  <!-- 背景图 -->
+  <public-bgc></public-bgc>
+  <!-- 页面内容 -->
+  <view class="pageContent">
+    <!-- 下一步操作 -->
+    <view class="nexStepWrap">
+      <!-- 数据数量 -->
+      <view class="dataNum" wx:if="{{type === '1' || type === '3'}}">{{currentNum}}/{{imgList.length}}</view>
+      <!-- 下一步操作 -->
+      <view class="nextStep" bindtap="nextStep">下一步</view>
+    </view>
+    <!-- 选中的图片 -->
+    <swiper class="imgListWrap" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" bindchange="swiperChange" wx:if="{{type === '1' || type === '3'}}">
+      <block wx:for="{{imgList}}" wx:key="index">
+        <swiper-item>
+          <image class="selImg {{item.displayMode ? 'selImgWidth' : 'selImgHeight'}}" mode="{{item.displayMode ? 'widthFix' : 'heightFix'}}" data-mode="{{item.displayMode}}" src="{{item.tempFilePath}}"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+    <!-- 选择的视频 -->
+    <swiper class="imgListWrap" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" wx:if="{{type === '2'}}">
+      <block class="" wx:for="{{imgList}}" wx:key="index">
+        <swiper-item>
+          <video class="selVideo" src="{{item.tempFilePath}}" show-play-btn="false"></video>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+</view>

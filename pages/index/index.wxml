@@ -1,0 +1,56 @@
+<view class="pageWrap">
+  <!-- 背景图 -->
+  <public-bgc></public-bgc>
+  <!-- 页面内容 -->
+  <view class="pageContent">
+    <!-- 搜索 -->
+    <view class="searchWrap">
+      <!-- 头像 -->
+      <image class="headImg" src="{{userInfo.avatarUrl}}"></image>
+      <!-- 搜索框 -->
+      <search-inp class="searchInp"></search-inp>
+    </view>
+    <!-- 顶部sliderList(关注，发现，话题) -->
+    <view class="sliderListWrap">
+      <view class="sliderBtn" wx:for="{{sliderList}}" wx:key="index">
+        <view class="sliderText">{{item.text}}</view>
+        <view class="selSlider" wx:if="{{selSilderIndex === index}}"></view>
+      </view>
+    </view>
+    <!-- 对应页面 -->
+    <view class="scrollViewWrap">
+      <swiper indicator-dots="{{indicatorDots}}"
+        autoplay="{{autoplay}}" bindchange="swiperChange">
+        <!-- 关注页面 -->
+        <block>
+          <swiper-item>
+            <home-focus></home-focus> 
+          </swiper-item>
+        </block>
+        <!-- 发现页面 -->
+        <block>
+          <swiper-item>
+            <home-found></home-found>
+          </swiper-item>
+        </block>
+        <!-- 话题页面 -->
+        <block>
+          <swiper-item>
+            <home-topic></home-topic>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <!-- 发贴 -->
+    <view class="addPostingWrap" bindtap="addPost">
+      <image class="addPostingImg" src="/images/selAdd.png"></image>
+    </view>
+    <!-- 发帖类型弹窗组件 -->
+    <bottom-frame id="bottomFrame">
+      <view class="publishedStyle" bindtap="release" data-type="1">图片</view>
+      <view class="publishedStyle" bindtap="release" data-type="2">视频</view>
+      <view class="publishedStyle" bindtap="release" data-type="3">帖子</view>
+      <view class="publishedStyle cancelBtn" bindtap="release" data-type="4">再考虑一下子</view>
+    </bottom-frame>
+  </view>
+</view>

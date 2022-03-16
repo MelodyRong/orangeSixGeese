@@ -1,0 +1,215 @@
+/* 购物车总数编辑 */
+.cardTitleWrap {
+  width: 100%;
+  height: 50rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  color: #ea9518;
+}
+
+.cardTotalNum {
+  display: flex;
+  align-items: center;
+  margin-left: 10rpx;
+}
+
+.cardText {
+  font-size: 36rpx;
+  font-weight: 500;
+}
+
+.cardTotalNum {
+  font-size: 26rpx;
+}
+
+.cardEdit {
+  margin-left: auto;
+  margin-right: 10rpx;
+}
+
+/* 购物车商品数据 */
+.cardListWrap {
+  padding: 0 10rpx 50rpx;
+  margin-top: 60rpx;
+}
+
+/* 店铺名称 */
+.cardStoreListWrap {
+  background-color: rgba(255, 255, 255, .8);
+  border-radius: 10rpx;
+  padding: 20rpx 10rpx 10rpx;
+  margin-bottom: 20rpx;
+}
+
+.storeNameWrap {
+  display: flex;
+  align-items: center;
+}
+
+.storeName {
+  color: #ea9518;
+  font-size: 36rpx;
+}
+
+/* 店铺商品 */
+.cardCommodityListWrap {
+  margin-top: 20rpx;
+}
+
+.cardCommodityList {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.selAllIcon {
+  margin-right: 10rpx;
+}
+
+.goodsDetailWrap {
+  display: flex;
+  width: 90%;
+}
+
+.goodsImg {
+  width: 30vw;
+  height: 28.5vw;
+  border-radius: 20rpx;
+}
+
+.goodsDetails {
+  width: 68%;
+  margin-left: 2%;
+  position: relative;
+}
+
+.goodsName {
+  max-width: 100%;
+  color: #ea9518;
+  font-size: 32rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.goodsSpecification {
+  display: inline-block;
+  max-width: 100%;
+  overflow-x: hidden;
+  background-color: #f7f7f7;
+  color: #999999;
+  font-size: 24rpx;
+  padding: 5rpx 10rpx;
+  border-radius: 5rpx;
+  margin-top: 10rpx;
+}
+
+.goodsPriceNumWrap {
+  width: 100%;
+  display: flex;
+  align-items: baseline;
+  position: absolute;
+  bottom: 5rpx;
+}
+
+.goodsPriceSymbol {
+  font-size: 28rpx;
+  color: #ea9518;
+}
+
+.goodsSettlementPrice {
+  font-size: 38rpx;
+  color: #ea9518;
+}
+
+/* 购物车商品数量 */
+.goodsNumWrap {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+.goodsNumIcon {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.goodsNumInp {
+  margin: 0 30rpx;
+  color: #ea9518;
+  font-size: 36rpx;
+}
+
+/* 全选结算栏 */
+.settlementWrap {
+  width: 100vw;
+  height: 100rpx;
+  position: fixed;
+  z-index: 3;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+}
+
+.selectAll {
+  font-size: 28rpx;
+  color: #e6e6e6;
+  margin-left: 20rpx;
+  display: flex;
+  align-items: center;
+}
+
+.selectAllImg {
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 10rpx;
+}
+
+.selAllTextStyle {
+  color: #ea9518;
+}
+
+.settlementBtnWrap {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  margin-right: 20rpx;
+}
+
+.combinedPriceWrap {
+  display: flex;
+  align-items: baseline;
+}
+
+.combined {
+  color: #000000;
+}
+
+.priceSymbol {
+  color: #ea9518;
+  font-weight: 500;
+}
+
+.settlementPrice {
+  font-size: 50rpx;
+  color: #ea9518;
+  margin-right: 20rpx;
+  font-weight: 500;
+}
+
+.settlementBtn {
+  width: 140rpx;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  background-color: #ea9518;
+  border-radius: 100rpx;
+  color: #ffffff;
+  font-size: 32rpx;
+}
