@@ -76,7 +76,8 @@
         "pages/myDraftPage/myDraftPage",
         "pages/addPostDetailsPage/addPostDetailsPage",
         "pages/addVideoDetailsPage/addVideoDetailsPage",
-        "pages/helpFeedbackPage/helpFeedbackPage"
+        "pages/helpFeedbackPage/helpFeedbackPage",
+        "pages/addressPage/addressPage"
       ]
     }
   ],

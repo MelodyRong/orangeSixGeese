@@ -56,8 +56,5 @@
         <image class="triangleImg" src="{{triangleImg}}"></image>
       </view>
     </view>
-    <!-- 猜你喜欢 -->
-    <view class="likeWrap">
-    </view>
   </view>
 </view>

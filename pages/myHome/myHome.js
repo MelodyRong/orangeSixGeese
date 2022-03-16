@@ -69,13 +69,17 @@ Page({
         text: '我的店铺',
         types: '13'
       },{
+        imgUrl: '../../images/siteIcon.png',
+        text: '我的地址',
+        types: '14'
+      },{
         imgUrl: '../../images/helpFeedback.png',
         text: '帮助反馈',
-        types: '14'
+        types: '15'
       },{
         imgUrl: '../../images/contactUs.png',
         text: '联系我们',
-        types: '15'
+        types: '16'
       }]
     ],
     triangleImg: '../../images/triangle.png' // 全部订单小三角
@@ -185,11 +189,16 @@ Page({
         url: '../mall/pages/myStorePage/myStorePage',
       })
     } else if (types === '14') {
+      // 我的地址页面
+      wx.navigateTo({
+        url: '../query/pages/addressPage/addressPage',
+      })
+    } else if (types === '15') {
       // 帮助反馈页面
       wx.navigateTo({
         url: '../query/pages/helpFeedbackPage/helpFeedbackPage',
       })
-    } else if (types === '15') {
+    } else if (types === '16') {
       // 联系我们页面
       wx.navigateTo({
         url: '../query/pages/myContactUsPage/myContactUsPage',

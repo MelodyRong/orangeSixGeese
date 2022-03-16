@@ -66,6 +66,7 @@
 
 .myOrder {
   font-size: 28rpx;
+  color: #ea9518;
 }
 
 .allOrderWrap {
