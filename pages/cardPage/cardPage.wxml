@@ -5,7 +5,7 @@
   <view class="pageContent">
     <!-- 购物车数据 -->
     <view class="cardList">
-      <view class="cardTitleWrap">
+      <view class="cardTitleWrap" style="background-color:rgba(255,255,255,{{num}})">
         <view class="cardTotalNum">
           <text class="cardText">购物车</text>
           <text class="cardTotalNum">({{cardTotalNum}})</text>
@@ -16,7 +16,7 @@
       <view class="cardListWrap">
         <view class="cardStoreListWrap" wx:for="{{cardList}}" wx:for-index="storeIndex" wx:key="storeIndex">
           <!-- 店铺名称 -->
-          <view class="storeNameWrap" bindtap="goStore">
+          <view class="storeNameWrap" catchtap="goStore">
             <image class="selAllIcon" src="{{item.isSelStore ? selAll : noSelAllW }}" catchtap="storeSelAll" data-stroe-index="{{storeIndex}}"></image>
             <view class="storeName">{{item.stroeName}}</view>
             <image src="{{triangleImg}}" class="triangleImg"></image>
@@ -38,9 +38,9 @@
                     </view>
                     <!-- 商品数量 -->
                     <view class="goodsNumWrap">
-                      <image src="{{subtractIcon}}" class="goodsNumIcon" bindtap="goodsNumChange" data-store-index="{{storeIndex}}" data-goods-index="{{goodsIndex}}" data-type="0" data-goods-num="{{goodsItem.goodsNum}}"></image>
+                      <image src="{{subtractIcon}}" class="goodsNumIcon" catchtap="goodsNumChange" data-store-index="{{storeIndex}}" data-goods-index="{{goodsIndex}}" data-type="0" data-goods-num="{{goodsItem.goodsNum}}"></image>
                       <text class="goodsNumInp">{{goodsItem.goodsNum}}</text>
-                      <image src="{{addIcon}}" class="goodsNumIcon" bindtap="goodsNumChange" data-store-index="{{storeIndex}}" data-goods-index="{{goodsIndex}}" data-type="1"></image>
+                      <image src="{{addIcon}}" class="goodsNumIcon" catchtap="goodsNumChange" data-store-index="{{storeIndex}}" data-goods-index="{{goodsIndex}}" data-type="1"></image>
                     </view>
                   </view>
                 </view>
