@@ -76,7 +76,7 @@ Page({
         if (type === '1' || type === '3') {
           // 图片跳转
           wx.navigateTo({
-            url: '/pages/addPage/addPage',
+            url: '/pages/add/pages/addPage/addPage',
           })
         } else if (type === '2') {
           // 视频跳转
