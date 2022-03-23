@@ -19,7 +19,7 @@ Page({
         isPlacedTop: '1', //消息置顶
         unreadNume: '10', // 未读条数
         lastMesSenderName: '', // 最后一条消息的发送人名称（群消息的时候显示）
-        lastMesSendeContent: '耶耶生日快乐', // 最后一条消息的内容
+        lastMesSendeContent: '君既至，望莫归', // 最后一条消息的内容
         mesType: '01' // 消息类型（系统消息，个人消息，关注他人自动恢复消息）
       },
       {
