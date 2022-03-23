@@ -20,12 +20,12 @@ Page({
     selCardData:[], // 选中的购物车数据
     cardList: [
       {
-        storeId: "1111", // 店铺id
+        storeId: "01", // 店铺id
         stroeName: '俊哲小铺', // 店铺名称
         isSelStore: false, // 该店铺数据是否全选中
         goodsList: [
           {
-            goodsId: 1111, // 商品id
+            goodsId: "0101", // 商品id
             isSelGoods: false, // 该商品是否选中
             goodsImg: '../../images/tiger.jpeg', // 商品图片
             goodsName: '橘栀虎虎珍珠斜跨链包', //商品名称
@@ -34,7 +34,7 @@ Page({
             goodsPrice: 51.1, // 商品价格
           },
           {
-            goodsId: 1111, // 商品id
+            goodsId: "0102", // 商品id
             isSelGoods: false, // 该商品是否选中
             goodsImg: '../../images/baby.jpeg', // 商品图片
             goodsName: '君至归来棉花娃娃', //商品名称
@@ -42,7 +42,7 @@ Page({
             goodsSpecification: '正常体，裸娃，普毛', // 商品规格
             goodsPrice: 5112.9, // 商品价格
           },{
-            goodsId: 1111, // 商品id
+            goodsId: "0103", // 商品id
             isSelGoods: false, // 该商品是否选中
             goodsImg: '../../images/baby.jpeg', // 商品图片
             goodsName: '君至归来棉花娃娃', //商品名称
@@ -53,12 +53,12 @@ Page({
         ]
       },
       {
-        storeId: "1111", // 店铺id
+        storeId: "02", // 店铺id
         stroeName: '俊哲小铺', // 店铺名称
         isSelStore: false, // 该店铺数据是否全选中
         goodsList: [
           {
-            goodsId: 1111, // 商品id
+            goodsId: "0201", // 商品id
             isSelGoods: false, // 该商品是否选中
             goodsImg: '../../images/tiger.jpeg', // 商品图片
             goodsName: '橘栀虎虎珍珠斜跨链包', //商品名称
@@ -67,7 +67,7 @@ Page({
             goodsPrice: 11.29, // 商品价格
           },
           {
-            goodsId: 1111, // 商品id
+            goodsId: "0202", // 商品id
             isSelGoods: false, // 该商品是否选中
             goodsImg: '../../images/baby.jpeg', // 商品图片
             goodsName: '君至归来棉花娃娃', //商品名称
@@ -75,7 +75,7 @@ Page({
             goodsSpecification: '正常体，裸娃，普毛', // 商品规格
             goodsPrice: 511, // 商品价格
           },{
-            goodsId: 1111, // 商品id
+            goodsId: "0203", // 商品id
             isSelGoods: false, // 该商品是否选中
             goodsImg: '../../images/baby.jpeg', // 商品图片
             goodsName: '君至归来棉花娃娃', //商品名称
@@ -86,12 +86,12 @@ Page({
         ]
       },
       {
-        storeId: "1111", // 店铺id
+        storeId: "03", // 店铺id
         stroeName: '俊哲小铺', // 店铺名称
         isSelStore: false, // 该店铺数据是否全选中
         goodsList: [
           {
-            goodsId: 1111, // 商品id
+            goodsId: "0301", // 商品id
             isSelGoods: false, // 该商品是否选中
             goodsImg: '../../images/tiger.jpeg', // 商品图片
             goodsName: '橘栀虎虎珍珠斜跨链包', //商品名称
@@ -100,7 +100,7 @@ Page({
             goodsPrice: 5112.9, // 商品价格
           },
           {
-            goodsId: 1111, // 商品id
+            goodsId: "0302", // 商品id
             isSelGoods: false, // 该商品是否选中
             goodsImg: '../../images/baby.jpeg', // 商品图片
             goodsName: '君至归来棉花娃娃', //商品名称
@@ -108,7 +108,7 @@ Page({
             goodsSpecification: '正常体，裸娃，普毛', // 商品规格
             goodsPrice: 51.12, // 商品价格
           },{
-            goodsId: 1111, // 商品id
+            goodsId: "0303", // 商品id
             isSelGoods: false, // 该商品是否选中
             goodsImg: '../../images/baby.jpeg', // 商品图片
             goodsName: '君至归来棉花娃娃', //商品名称
@@ -175,7 +175,9 @@ Page({
         })
       } else {
         console.log('结算')
-
+        wx.navigateTo({ // 跳转商品结算页
+          url: '/pages/mall/pages/goodsSettlementPage/goodsSettlementPage'
+        })
       }    
     }
   },
@@ -189,21 +191,24 @@ Page({
     if (this.data.isSelectAll) {
       this.data.cardList.forEach((e, index) => {
         e.isSelStore = true
+        // 购物车全选时，需要查看每个店铺是否有选中的数据，如果有选中的数据则不需要添加，如果没有则将该店铺中的所有数据都添加
+        // this.data.selCardData.push(e)
         e.goodsList.forEach((i, index) => {
           if (!i.isSelGoods) {
             i.isSelGoods = true
             this.data.selCardNum = this.data.selCardNum + 1 // 计算总数
             this.data.totalAmount = (Number(this.data.totalAmount) + Number(i.goodsNum * i.goodsPrice)).toFixed(2) // 计算金额
-            this.data.selCardData.push(i) // 记录选中数据
           }
         })
       })
+      wx.setStorageSync('selCardData', this.data.selCardData)
       this.setData({
         cardList: this.data.cardList, // 更新购物车数据
         selCardData: this.data.selCardData, // 购物车选中数据
         selCardNum: this.data.selCardNum, // 购物车选中数量
         totalAmount: Number(this.data.totalAmount) //购物车总金额
       })
+      console.log(this.data.selCardData, '购物车全选更新选中数据')
     } else {
       this.data.cardList.forEach((e, index) => {
         e.isSelStore = false
@@ -211,6 +216,7 @@ Page({
           i.isSelGoods = false
         })
       })
+      wx.setStorageSync('selCardData', [])
       // 不选中的状态下，购物车总金额和总数以及选中数据都要归零
       this.setData({
         cardList: this.data.cardList, // 更新购物车数据
@@ -218,6 +224,7 @@ Page({
         selCardNum: 0, // 购物车选中数量
         totalAmount: 0 //购物车总金额
       })
+      console.log(this.data.selCardData, '购物车全不选更新选中数据')
     }
   },
 
@@ -229,35 +236,54 @@ Page({
     this.data.cardList[stroeIndex].isSelStore = !this.data.cardList[stroeIndex].isSelStore
     // 将该店铺下的所有商品都选中/不选中，并计算选中金额和数量
     if (this.data.cardList[stroeIndex].isSelStore) {
+      let isSelData = false
+      this.data.selCardData.forEach((e, index) => {
+        if (e.storeId === this.data.cardList[stroeIndex].storeId) {
+          this.data.selCardData.splice(index,1)
+          this.data.selCardData.push(this.data.cardList[stroeIndex])
+          isSelData = true
+        }
+        return isSelData
+      })
+      if (!isSelData) { // 如果是FALSE，则说明当前店铺数据是新加的
+        this.data.selCardData.push(this.data.cardList[stroeIndex])
+      }
       this.data.cardList[stroeIndex].goodsList.forEach((e, index) => {
         if (!e.isSelGoods) {
           // 如果某一商品已被选中不作处理，如果未选中则选中，计算数量和金额
           e.isSelGoods = true
           that.data.selCardNum = that.data.selCardNum + 1
           that.data.totalAmount = (Number(that.data.totalAmount) + e.goodsNum * e.goodsPrice).toFixed(2)
-          that.data.selCardData.push(e)
         }
       })
+      wx.setStorageSync('selCardData', that.data.selCardData)
       this.setData({
         cardList: this.data.cardList,
         selCardNum: that.data.selCardNum,
         totalAmount: Number(that.data.totalAmount),
         selCardData: that.data.selCardData
       })
+      console.log(this.data.selCardData, '店铺全选更新选中数据')
     } else {
+      this.data.selCardData.forEach((e, index) => {
+        if (e.storeId === this.data.cardList[stroeIndex].storeId) {
+          this.data.selCardData.splice(index,1)
+        }
+      })
       this.data.cardList[stroeIndex].goodsList.forEach((e, index) => {
         e.isSelGoods = false
         that.data.selCardNum = that.data.selCardNum - 1
-        that.data.totalAmount = (parseInt(that.data.totalAmount) - (e.goodsNum * e.goodsPrice).toFixed(2)).toFixed(2)
-        that.data.selCardData.splice(e, 1)
+        that.data.totalAmount = (Number(that.data.totalAmount) - (e.goodsNum * e.goodsPrice).toFixed(2)).toFixed(2)
       })
       console.log(this.data.totalAmount, '购物车选中商品总金额')
+      wx.setStorageSync('selCardData', that.data.selCardData)
       this.setData({
         cardList: this.data.cardList,
         selCardNum: that.data.selCardNum,
-        totalAmount: that.data.totalAmount,
+        totalAmount: Number(that.data.totalAmount),
         selCardData: that.data.selCardData
       })
+      console.log(this.data.selCardData, '店铺全不选更新选中数据')
     }
     // 同时查询购物车全部数据是否全部选中，如果全部选中，则购物车全选按钮选中，否则取反
     this.data.isSelectAll = that.data.cardList.findIndex(e => (e.isSelStore===false)) === -1 ? true : false
@@ -284,12 +310,41 @@ Page({
     // 更新购物车选中数量
     this.data.selCardNum = goodsData.isSelGoods ? parseInt(this.data.selCardNum) + 1 : parseInt(this.data.selCardNum) - 1
     // 更新购物车选中数据
-    // console.log(this.data.selCardData, '商品选中旧数据')
-    // this.setData({
-    //   selCardData: this.data.selCardData.push(this.data.cardList[storeIndex].goodsList[goodsIndex])
-    // })
-    console.log(this.data.selCardData)
-    // this.data.selCardData = isSelGoods ? this.data.selCardData.push(goodsData) : this.data.selCardData.map(f => {return f.goodsId === goodsData.goodsId ? goodsData : f})
+    if (isSelGoods) { // 该商品被选中
+      let isSelData = false
+      this.data.selCardData.forEach((e, index) => {
+        if (e.storeId === this.data.cardList[storeIndex].storeId) {
+          isSelData = true
+        }
+        return isSelData
+      })
+      if (isSelData) { // 当前选中数据中有该商品所在店铺的数据
+        this.data.selCardData.forEach((e, index) => {
+          if (e.storeId === this.data.cardList[storeIndex].storeId) {
+            console.log('当前选中数据中有该商品所在店铺的数据')
+            e.goodsList.push(goodsData)
+            return
+          }
+        })
+      } else { // 当前选中数据中无该商品所在店铺数据
+        let newSelData = JSON.parse(JSON.stringify(this.data.cardList[storeIndex]))
+        newSelData.goodsList = [goodsData]
+        this.data.selCardData.push(newSelData)
+      }
+    } else { // 该商品被取消选中
+      // 当前取消商品的店铺中还有其余商品被选中
+      this.data.selCardData.forEach((e, index) => {
+        e.goodsList.forEach((i, indexs) => {
+          if (i.goodsId === goodsData.goodsId) {
+            e.goodsList.splice(indexs, 1)
+            if (e.goodsList.length === 0) { // 当前商品取消选中后该店铺中若无其余所选数据则将该店铺数据删除
+              this.data.selCardDat.splice(index, 1)
+            }
+          }
+        })
+      })
+    }
+    wx.setStorageSync('selCardData', this.data.selCardData)
     this.setData({
       cardList: this.data.cardList,
       isSelectAll: this.data.isSelectAll,
@@ -315,36 +370,55 @@ Page({
       } else {
         // 如果当前商品被选中待结算，商品数量减一的同时还要计算被结算金额，以及更新本地和服务器的选中数据
         if (that.data.cardList[storeIndex].goodsList[goodsIndex].isSelGoods) {
-          // 数量减一
-          that.data.cardList[storeIndex].goodsList[goodsIndex].goodsNum--
           // 购物车金额减一个商品的金额
           that.data.totalAmount = (that.data.totalAmount - that.data.cardList[storeIndex].goodsList[goodsIndex].goodsPrice).toFixed(2)
-          // 更新本地数据
-
+          // 数量减一,更新本地数据
+          this.data.selCardData.forEach((e, index) => {
+            if (e.storeId === that.data.cardList[storeIndex].storeId) {
+              e.goodsList.forEach((i, index) => {
+                if (i.goodsId === that.data.cardList[storeIndex].goodsList[goodsIndex].goodsId) {
+                  i.goodsNum--
+                }
+              })
+            }
+          })
           // 更新服务器数据（发接口）
         } else {
           // 如果当前商品未选中，商品数量减一的同时发送接口变更服务器数据
           that.data.cardList[storeIndex].goodsList[goodsIndex].goodsNum--
         }
+        wx.setStorageSync('selCardData', this.data.selCardData)
+        this.setData({
+          selCardData: this.data.selCardData
+        })
       }
     } else if (type === "1") {
       // 数量加(数量增加时要考虑商品库存),还需要考虑当前商品是否选中待结算，如果选中待结算数量增加的同时需要更新选中的购物车金额，以及更新选中的本地数据和服务器数据
-      if (that.data.cardList[storeIndex].goodsList[goodsIndex].isSelGoods) {
+      if (that.data.cardList[storeIndex].goodsList[goodsIndex].isSelGoods) { // 该商品已被选中待结算
         // 商品增加
-        that.data.cardList[storeIndex].goodsList[goodsIndex].goodsNum++
+        // that.data.cardList[storeIndex].goodsList[goodsIndex].goodsNum++
         // 选中金额增加
         that.data.totalAmount = Number(that.data.totalAmount) + Number(that.data.cardList[storeIndex].goodsList[goodsIndex].goodsPrice)
         // 更新本地数据
-        // console.log(that.data.selCardData, '旧数据')
-        // that.data.selCardData = that.data.selCardData.map(f => {
-        //   return f.goodsId === that.data.cardList[storeIndex].goodsList[goodsIndex].goodsId ? that.data.cardList[storeIndex].goodsList[goodsIndex] : f
-        // })
-        // 更新服务器数据
+        // 数量加一,更新本地数据
+        this.data.selCardData.forEach((e, index) => {
+          if (e.storeId === that.data.cardList[storeIndex].storeId) {
+            e.goodsList.forEach((i, index) => {
+              if (i.goodsId === that.data.cardList[storeIndex].goodsList[goodsIndex].goodsId) {
+                i.goodsNum++
+              }
+            })
+          }
+        })
+        // 更新服务器数据(发接口)
       } else {
         that.data.cardList[storeIndex].goodsList[goodsIndex].goodsNum++
-        // 更新本地数据
-        // 更新服务器数据
+        // 更新服务器数据(发接口)
       }
+      wx.setStorageSync('selCardData', this.data.selCardData)
+      this.setData({
+        selCardData: this.data.selCardData
+      })
     }
     this.setData({
       cardList: this.data.cardList,
