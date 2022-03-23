@@ -71,6 +71,8 @@
           </view>
         </view>
       </view>
+      <!-- 已加载全部数据 -->
+      <view class="showTotalData" wx:if="{{mesList}}">已加载全部数据</view>
     </view>
   </view>
 </view>
