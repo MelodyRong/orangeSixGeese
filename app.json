@@ -1,11 +1,11 @@
 {
   "pages": [
-    
     "pages/index/index",
     "pages/classificationPage/classificationPage",
     "pages/messagePage/messagePage",
     "pages/cardPage/cardPage",
-    "pages/myHome/myHome"
+    "pages/myHome/myHome",
+    "pages/registrationProblem/registrationProblem"
   ],
   "tabBar": {
     "color":"#666666",

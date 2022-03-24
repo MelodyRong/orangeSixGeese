@@ -10,7 +10,11 @@ App({
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        // "pages/registrationProblem/registrationProblem",
+        if (!res.code) {
+          wx.navigateTo({
+            url: "/pages/registrationProblem/registrationProblem",
+          })
+        }
       }
     })
     // 获取系统信息
