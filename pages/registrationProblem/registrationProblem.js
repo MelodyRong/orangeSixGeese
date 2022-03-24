@@ -18,7 +18,6 @@ Page({
 
   // 点击用户授权
   userAuthorization (e) {
-    let that = this
     // 查看用户是否授权
     wx.getSetting({
       success: function (res) {

@@ -35,8 +35,34 @@ Page({
       userInfo: app.globalData.userInfo // 用户信息
     })
   },
+  // 登录
+  logoIn() {
+    let that = this
+    // 查看用户是否授权
+    wx.getSetting({
+      success: function (res) {
+        console.log(res, '查看是否授权')
+        if (res.authSetting['scope.userInfo']) {
+          wx.getUserProfile({
+            desc: '用于完善资料',
+            success: (userInforRes) => {
+              console.log(userInforRes,'用户信息')
+              app.globalData.userInfo = userInforRes.userInfo // 缓存用户数据
+              that.setData({
+                userInfo: userInforRes.userInfo // 用户信息
+              })
+            }
+          })
+        } else {
+          // 用户没有授权，显示授权页面
+        }
+      }
+    })
+  },
   onShow(){
-    
+    this.setData({
+      userInfo: app.globalData.userInfo // 用户信息
+    })
   },
   // 顶部slider滑动
   scroll (e) {

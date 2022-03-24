@@ -1,7 +1,7 @@
 .searchWrap {
   display: flex;
   align-items:center;
-  padding: 20rpx 30rpx;
+  padding: 20rpx 30rpx 20rpx 20rpx;
 }
 
 .headImg {
@@ -9,6 +9,12 @@
   height: 60rpx;
   border-radius: 50%;
   margin-right: 30rpx;
+}
+
+.logoText {
+  width: 100rpx;
+  color: #f2f2f2;
+  font-size: 24rpx;
 }
 
 .searchInp {

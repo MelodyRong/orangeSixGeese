@@ -6,7 +6,8 @@
     <!-- 搜索 -->
     <view class="searchWrap">
       <!-- 头像 -->
-      <image class="headImg" src="{{userInfo.avatarUrl}}"></image>
+      <image class="headImg" wx:if="{{userInfo.avatarUrl}}" src="{{userInfo.avatarUrl}}"></image>
+      <text class="logoText" wx:else bindtap="logoIn">请登录</text>
       <!-- 搜索框 -->
       <search-inp class="searchInp"></search-inp>
     </view>

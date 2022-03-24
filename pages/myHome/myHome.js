@@ -89,6 +89,33 @@ Page({
       userInfo: app.globalData.userInfo
     })
   },
+  // 监听页面切换
+  onTabItemTap (e) {
+    console.log(e, '监听页面切换')
+    let that = this
+    if (app.globalData.userInfo === null) {
+      // 查看用户是否授权
+      wx.getSetting({
+        success: function (res) {
+          console.log(res, '查看是否授权')
+          if (res.authSetting['scope.userInfo']) {
+            wx.getUserProfile({
+              desc: '用于完善资料',
+              success: (userInforRes) => {
+                console.log(userInforRes,'用户信息')
+                app.globalData.userInfo = userInforRes.userInfo
+                that.setData({
+                  userInfo: userInforRes.userInfo
+                })
+              }
+            })
+          } else {
+            // 用户没有授权，显示授权页面
+          }
+        }
+      })
+    }
+  },
   // 进入页面
   goNextPage (e) {
     console.log(e.currentTarget.dataset.types, '进入页面')

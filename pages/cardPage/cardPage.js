@@ -192,7 +192,7 @@ Page({
       this.data.cardList.forEach((e, index) => {
         e.isSelStore = true
         // 购物车全选时，需要查看每个店铺是否有选中的数据，如果有选中的数据则不需要添加，如果没有则将该店铺中的所有数据都添加
-        // this.data.selCardData.push(e)
+        
         e.goodsList.forEach((i, index) => {
           if (!i.isSelGoods) {
             i.isSelGoods = true

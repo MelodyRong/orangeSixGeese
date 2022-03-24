@@ -57,7 +57,7 @@
           <view class="mesContentWrap">
             <view class="mesContentTitleWrap">
               <!-- 消息人名称 -->
-              <view class="mesName">{{item.mesName}}</view>
+              <view class="mesName">{{item.mesName}}<text class="accountRemark">(该账号由技术实现，非本人账号)</text></view>
               <!-- 最后一条消息时间 -->
               <view class="lastMesTime">{{item.mewTime}}</view>
             </view>
