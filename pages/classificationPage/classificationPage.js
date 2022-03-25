@@ -1,4 +1,4 @@
-// pages/classificationPage/classificationPage.js
+let data = require("./pages/registrationProblem/navContentList.js")
 Page({
 
   /**
@@ -14,19 +14,23 @@ Page({
    */
   onLoad: function (options) {
     let that = this
-    wx.request({
-      url: 'http://192.168.1.6:8080/navContentList.json',
-      data: {},
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      success (res) {
-        console.log(res.data)
-        that.setData({
-          navigationTabList: res.data
-        })
-      }
+    // wx.request({
+    //   url: 'http://192.168.1.6:8080/navContentList.json',
+    //   data: {},
+    //   header: {
+    //     'content-type': 'application/json' // 默认值
+    //   },
+    //   success (res) {
+    //     console.log(res.data)
+    //     that.setData({
+    //       navigationTabList: res.data
+    //     })
+    //   }
+    // })
+    that.setData({
+      navigationTabList: data.navigationTabList
     })
+    console.log(this.data.navigationTabList)
   },
 
   // 选择分类

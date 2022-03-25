@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    noCardListData: '../../images/noCardListData.png', // 购物车无数据图标
     num: 0, // 编辑栏背景色渐变值
     cardTotalNum: 0, //购物车总数
     isSelectAll: false, // 是否全选
@@ -142,11 +143,34 @@ Page({
     })
   },
 
+  // 购物车无数据，点击去逛逛
+  goBrowse () {
+    wx.switchTab({
+      url: '../index/index',
+    })
+  },
+
   // 购物车编辑
   cardEdit () {
-    this.setData({
-      isEdit: !this.data.isEdit
-    })
+    if (this.data.cardTotalNum === 0 && this.data.cardList.length === 0) {
+      wx.showModal({
+        content: '购物车暂无数据呦!去逛逛吧',
+        success (res) {
+          if (res.confirm) {
+            wx.switchTab({
+              url: '../index/index',
+            })
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
+        }
+      })
+      
+    } else {
+      this.setData({
+        isEdit: !this.data.isEdit
+      })
+    }
   },
 
   // 购物车结算/删除数据
@@ -189,17 +213,32 @@ Page({
     })
     // 并且选中/不选中购物车全部数据
     if (this.data.isSelectAll) {
+      
       this.data.cardList.forEach((e, index) => {
-        e.isSelStore = true
-        // 购物车全选时，需要查看每个店铺是否有选中的数据，如果有选中的数据则不需要添加，如果没有则将该店铺中的所有数据都添加
-        
-        e.goodsList.forEach((i, index) => {
-          if (!i.isSelGoods) {
-            i.isSelGoods = true
-            this.data.selCardNum = this.data.selCardNum + 1 // 计算总数
-            this.data.totalAmount = (Number(this.data.totalAmount) + Number(i.goodsNum * i.goodsPrice)).toFixed(2) // 计算金额
+        if (!e.isSelStore) { // 未选中的店铺数据
+          e.isSelStore = true
+          if (e.goodsList.findIndex(t => t.isSelGoods === true) === -1) {
+            // 该店铺未有数据被选中,将该店铺数据全部加入本地缓存数据
+            console.log('验证通过')
+            this.data.selCardData.push(e)
+          } else {
+            // 该店铺已有数据被选中，将该店铺未选中数据加入本地缓存数据
+            console.log('验证不通过')
+            this.data.selCardData.forEach((f, fIndex) => {
+              if (e.storeId === f.storeId) {
+                this.data.selCardData.splice(fIndex, 1)
+                this.data.selCardData.push(e)
+              }
+            })
           }
-        })
+          e.goodsList.forEach((i, iIndex) => {
+            if (!i.isSelGoods) {
+              i.isSelGoods = true
+              this.data.selCardNum = this.data.selCardNum + 1 // 计算总数
+              this.data.totalAmount = (Number(this.data.totalAmount) + Number(i.goodsNum * i.goodsPrice)).toFixed(2) // 计算金额
+            }
+          })
+        }
       })
       wx.setStorageSync('selCardData', this.data.selCardData)
       this.setData({

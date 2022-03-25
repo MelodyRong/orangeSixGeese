@@ -29,7 +29,7 @@ Page({
         isPlacedTop: '1', //消息置顶
         unreadNume: '10', // 未读条数
         lastMesSenderName: '', // 最后一条消息的发送人名称（群消息的时候显示）
-        lastMesSendeContent: '张哲瀚，我好想你啊', // 最后一条消息的内容
+        lastMesSendeContent: '你要乖乖的哦！我很快就会回来的！', // 最后一条消息的内容
         mesType: '01' // 消息类型（系统消息，个人消息，关注他人自动恢复消息）
       }
     ]
