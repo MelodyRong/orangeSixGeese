@@ -57,7 +57,8 @@
         "pages/orderListPage/orderListPage",
         "pages/refundAfterPage/refundAfterPage",
         "pages/classDetailsList/classDetailsList",
-        "pages/goodsSettlementPage/goodsSettlementPage"
+        "pages/goodsSettlementPage/goodsSettlementPage",
+        "pages/goodsDetailsPage/goodsDetailsPage"
       ]
     },
     {

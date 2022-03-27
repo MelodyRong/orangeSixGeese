@@ -13,7 +13,7 @@
         <view class="cardEdit" bindtap="cardEdit">{{isEdit ? '完成' : '编辑'}}</view>
       </view>
       <!--  购物车商品数据  -->
-      <view class="cardListWrap" wx:if="{{cardList.lenght === 0}}">
+      <view class="cardListWrap" wx:if="cardList.length === 0">
         <view class="cardStoreListWrap" wx:for="{{cardList}}" wx:for-index="storeIndex" wx:key="storeIndex">
           <!-- 店铺名称 -->
           <view class="storeNameWrap" catchtap="goStore">

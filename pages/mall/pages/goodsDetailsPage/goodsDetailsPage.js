@@ -1,12 +1,11 @@
-// pages/mall/pages/goodsSettlementPage/goodsSettlementPage.js
+// pages/mall/pages/goodsDetailsPage/goodsDetailsPage.js
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        goodsNum: 0,
-        totalAmount: 222
+
     },
 
     /**
@@ -14,11 +13,6 @@ Page({
      */
     onLoad: function (options) {
 
-    },
-
-    // 确认订单支付
-    confirmPayment () {
-        console.log('确认订单并支付')
     },
 
     /**

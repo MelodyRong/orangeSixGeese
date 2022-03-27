@@ -1,1 +1,40 @@
-<text>购物车结算页</text>
+<view class="pageWrap">
+  <!-- 背景图 -->
+  <public-bgc></public-bgc>
+  <!-- 页面内容 -->
+  <view class="pageContent">
+    <view class="pageDetails">
+      <!-- 地址栏 -->
+      <view class="addressBarWrap">
+        <view class="addressBar">
+          <!-- 地址图标 -->
+          <image src="/images/siteIcon.png" class="otherFunImg"></image>
+          <!-- 地址 -->
+          <view class="" wx:if="isDefultAddress"></view>
+          <view class="" wx:else></view>
+        </view>
+      </view>
+      <!-- 商品栏 -->
+      <view class="goodsBarWrap">
+      </view>
+      <!-- 价格栏 -->
+      <view class="priceBarWrap">
+      </view>
+    </view>
+    <!-- 结算栏 -->
+    <view class="settlementBarWrap">
+        <view class="settlementBar">
+            <!-- 商品总数 -->
+            <view class="goodsNum">共{{goodsNum}}件</view>
+            <!-- 商品总价 -->
+            <view class="goodsTotalPrice">
+                <text class="combined">合计:</text>
+                <text class="priceSymbol">￥</text>
+                <text class="settlementPrice">{{totalAmount}}</text>
+            </view>
+            <!-- 确认支付 -->
+            <view class="confirmPayment" bindtap="confirmPayment">确认订单并支付</view>
+        </view>
+    </view>
+  </view>
+</view>

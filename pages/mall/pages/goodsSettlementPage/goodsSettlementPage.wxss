@@ -1,1 +1,81 @@
-/* pages/mall/pages/goodsSettlementPage/goodsSettlementPage.wxss */
+.pageContent {
+    /* width: 100vw; */
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+.pageDetails {
+    padding: 10rpx;
+}
+
+/* 地址栏 */
+.addressBarWrap {
+    /* padding: 20rpx 10rpx; */
+}
+
+.addressBar {
+    /* width: 100%; */
+    padding: 10rpx;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+}
+
+.otherFunImg {
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 40rpx;
+}
+
+/* 结算栏 */
+.settlementBarWrap {
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    height: 100rpx;
+    background-color: #fff;
+    display: flex;
+}
+
+.settlementBar {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+.goodsNum {
+    color: #999999;
+    font-size: 28rpx;
+    margin-right: 10rpx;
+}
+
+.goodsTotalPrice {
+    display: flex;
+    align-items: center;
+}
+
+.combined {
+    color: #999999;
+    font-size: 28rpx;
+}
+  
+.priceSymbol {
+    color: #ea9518;
+    font-weight: 500;
+}
+  
+.settlementPrice {
+    font-size: 50rpx;
+    color: #ea9518;
+    margin-right: 20rpx;
+    font-weight: 500;
+}
+
+.confirmPayment {
+    padding: 20rpx;
+    border-radius: 10rpx;
+    background-color: #fca404;
+    color: #fff;
+    font-size: 28rpx;
+    margin-right: 20rpx;
+}

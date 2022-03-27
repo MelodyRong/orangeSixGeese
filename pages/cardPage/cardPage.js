@@ -152,24 +152,29 @@ Page({
 
   // 购物车编辑
   cardEdit () {
-    if (this.data.cardTotalNum === 0 && this.data.cardList.length === 0) {
-      wx.showModal({
-        content: '购物车暂无数据呦!去逛逛吧',
-        success (res) {
-          if (res.confirm) {
-            wx.switchTab({
-              url: '../index/index',
-            })
-          } else if (res.cancel) {
-            console.log('用户点击取消')
-          }
-        }
-      })
-      
-    } else {
+    if (this.data.isEdit) { //文字是完成
       this.setData({
         isEdit: !this.data.isEdit
       })
+    } else { // 文字是编辑
+      if (this.data.cardTotalNum === 0 && this.data.cardList.length === 0) {
+        wx.showModal({
+          content: '购物车暂无数据呦!去逛逛吧',
+          success (res) {
+            if (res.confirm) {
+              wx.switchTab({
+                url: '../index/index',
+              })
+            } else if (res.cancel) {
+              console.log('用户点击取消')
+            }
+          }
+        })
+      } else {
+        this.setData({
+          isEdit: !this.data.isEdit
+        })
+      }
     }
   },
 
@@ -185,13 +190,40 @@ Page({
       }) 
     }else {
        if (this.data.isEdit) {
-        console.log('删除')
         wx.showModal({
           title: '提示',
-          content: '确定删除选中的' + that.data.selCardNum + '商品吗？',
+          content: '确定删除选中的' + that.data.selCardNum + '件商品吗？',
           success (res) {
             if (res.confirm) {
-              console.log('用户点击确定')
+              // 如果该店铺商品全选，将该店铺数据全部删除
+              let newCardList = that.data.cardList.filter(i => {
+                if (i.isSelStore===true) {
+                  that.data.cardTotalNum = that.data.cardTotalNum - i.goodsList.length
+                  i = null
+                }
+                return !!i
+              })
+              that.data.cardList = newCardList
+              newCardList.forEach((e, index) => {
+                let screenGoodsList = e.goodsList.filter(i => {
+                  if (i.isSelGoods===true) {
+                    that.data.cardTotalNum--
+                    i = null
+                  }
+                  return !!i
+                })
+                e.goodsList = screenGoodsList
+              })
+              that.setData({
+                cardList: that.data.cardList, // 购物陈数据更新
+                cardTotalNum: that.data.cardTotalNum, // 购车总数更新
+                totalAmount: 0.00, // 购物车金额更新
+                selCardNum: 0, // 购物车被选中总数更新
+                isSelectAll: false, // 是否全选
+                selCardData:[] // 本地缓存数据更新
+              })
+              wx.setStorageSync('selCardData', that.data.selCardData)
+              // 服务器数据变更（发接口）
             } else if (res.cancel) {
               console.log('用户点击取消')
             }
@@ -213,7 +245,6 @@ Page({
     })
     // 并且选中/不选中购物车全部数据
     if (this.data.isSelectAll) {
-      
       this.data.cardList.forEach((e, index) => {
         if (!e.isSelStore) { // 未选中的店铺数据
           e.isSelStore = true
@@ -434,10 +465,8 @@ Page({
     } else if (type === "1") {
       // 数量加(数量增加时要考虑商品库存),还需要考虑当前商品是否选中待结算，如果选中待结算数量增加的同时需要更新选中的购物车金额，以及更新选中的本地数据和服务器数据
       if (that.data.cardList[storeIndex].goodsList[goodsIndex].isSelGoods) { // 该商品已被选中待结算
-        // 商品增加
-        // that.data.cardList[storeIndex].goodsList[goodsIndex].goodsNum++
         // 选中金额增加
-        that.data.totalAmount = Number(that.data.totalAmount) + Number(that.data.cardList[storeIndex].goodsList[goodsIndex].goodsPrice)
+        that.data.totalAmount = (Number(that.data.totalAmount) + Number(that.data.cardList[storeIndex].goodsList[goodsIndex].goodsPrice)).toFixed(2)
         // 更新本地数据
         // 数量加一,更新本地数据
         this.data.selCardData.forEach((e, index) => {
@@ -470,6 +499,9 @@ Page({
   // 进入商品详情
   goGoodsDetails (e) {
     console.log(e, '进入商品详情')
+    wx.navigateTo({
+      url: '../mall/pages/goodsDetailsPage/goodsDetailsPage',
+    })
   },
 
   // 进入店铺
