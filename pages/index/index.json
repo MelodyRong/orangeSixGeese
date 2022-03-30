@@ -3,6 +3,7 @@
     "home-focus": "/components/homeFocusPage/homeFocusPage",
     "home-found": "/components/homeFoundPage/homeFoundPage",
     "home-topic": "/components/homeTopicPage/homeTopicPage",
+    "home-city-wide": "/components/cityWide/cityWide",
     "bottom-frame":"/components/bottomFrame/bottomFrame"
   },
   "navigationBarBackgroundColor": "#ffffff",

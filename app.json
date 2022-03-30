@@ -5,11 +5,12 @@
     "pages/messagePage/messagePage",
     "pages/cardPage/cardPage",
     "pages/myHome/myHome",
-    "pages/registrationProblem/registrationProblem"
+    "pages/registrationProblem/registrationProblem",
+    "components/cityWide/cityWide"
   ],
   "tabBar": {
-    "color":"#666666",
-    "selectedColor":"#ea9518",
+    "color": "#666666",
+    "selectedColor": "#ea9518",
     "list": [
       {
         "pagePath": "pages/index/index",

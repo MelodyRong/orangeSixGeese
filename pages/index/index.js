@@ -15,6 +15,10 @@ Page({
       {
         text: '话题',
         sliderId: '03'
+      },
+      {
+        text: '同城同担',
+        sliderId: '04'
       }
     ], // 顶部slider数据
     selSilderIndex: 0, // 选中标签
@@ -79,6 +83,7 @@ Page({
   addPost (e) {
     this.selectComponent('#bottomFrame').showFrame()
   },
+  
   // 获取相册数据
   getPhotoAlbum (obj) {
     const that = this

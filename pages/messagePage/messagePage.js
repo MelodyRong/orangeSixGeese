@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    aboutMyIcon: '../../images/aboutMy1.png',
+    aboutMyIcon: '../../images/aboutMy.png',
     commentsImgIcon: '../../images/commentsImg.png',
     giveLikeIcon: '../../images/giveLike.png',
     mesHeaderIcon: '../../images/systemMsg.png', // 消息头像

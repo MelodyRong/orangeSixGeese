@@ -24,11 +24,12 @@ Page({
         storeId: "01", // 店铺id
         stroeName: '俊哲小铺', // 店铺名称
         isSelStore: false, // 该店铺数据是否全选中
+        postage: '快递，免邮',
         goodsList: [
           {
             goodsId: "0101", // 商品id
             isSelGoods: false, // 该商品是否选中
-            goodsImg: '../../images/tiger.jpeg', // 商品图片
+            goodsImg: '/images/tiger.jpeg', // 商品图片
             goodsName: '橘栀虎虎珍珠斜跨链包', //商品名称
             goodsNum: 1, //商品数量
             goodsSpecification: '橘栀虎虎，玫瑰绒，金色', // 商品规格
@@ -37,7 +38,7 @@ Page({
           {
             goodsId: "0102", // 商品id
             isSelGoods: false, // 该商品是否选中
-            goodsImg: '../../images/baby.jpeg', // 商品图片
+            goodsImg: '/images/baby.jpeg', // 商品图片
             goodsName: '君至归来棉花娃娃', //商品名称
             goodsNum: 2, //商品数量
             goodsSpecification: '正常体，裸娃，普毛', // 商品规格
@@ -45,7 +46,7 @@ Page({
           },{
             goodsId: "0103", // 商品id
             isSelGoods: false, // 该商品是否选中
-            goodsImg: '../../images/baby.jpeg', // 商品图片
+            goodsImg: '/images/baby.jpeg', // 商品图片
             goodsName: '君至归来棉花娃娃', //商品名称
             goodsNum: 3, //商品数量
             goodsSpecification: '正常体，裸娃，高温丝', // 商品规格
@@ -57,11 +58,12 @@ Page({
         storeId: "02", // 店铺id
         stroeName: '俊哲小铺', // 店铺名称
         isSelStore: false, // 该店铺数据是否全选中
+        postage: '快递，免邮',
         goodsList: [
           {
             goodsId: "0201", // 商品id
             isSelGoods: false, // 该商品是否选中
-            goodsImg: '../../images/tiger.jpeg', // 商品图片
+            goodsImg: '/images/tiger.jpeg', // 商品图片
             goodsName: '橘栀虎虎珍珠斜跨链包', //商品名称
             goodsNum: 2, //商品数量
             goodsSpecification: '橘栀虎虎，玫瑰绒，金色', // 商品规格
@@ -70,7 +72,7 @@ Page({
           {
             goodsId: "0202", // 商品id
             isSelGoods: false, // 该商品是否选中
-            goodsImg: '../../images/baby.jpeg', // 商品图片
+            goodsImg: '/images/baby.jpeg', // 商品图片
             goodsName: '君至归来棉花娃娃', //商品名称
             goodsNum: 1, //商品数量
             goodsSpecification: '正常体，裸娃，普毛', // 商品规格
@@ -78,7 +80,7 @@ Page({
           },{
             goodsId: "0203", // 商品id
             isSelGoods: false, // 该商品是否选中
-            goodsImg: '../../images/baby.jpeg', // 商品图片
+            goodsImg: '/images/baby.jpeg', // 商品图片
             goodsName: '君至归来棉花娃娃', //商品名称
             goodsNum: 3, //商品数量
             goodsSpecification: '正常体，裸娃，高温丝', // 商品规格
@@ -90,11 +92,12 @@ Page({
         storeId: "03", // 店铺id
         stroeName: '俊哲小铺', // 店铺名称
         isSelStore: false, // 该店铺数据是否全选中
+        postage: '快递，免邮',
         goodsList: [
           {
             goodsId: "0301", // 商品id
             isSelGoods: false, // 该商品是否选中
-            goodsImg: '../../images/tiger.jpeg', // 商品图片
+            goodsImg: '/images/tiger.jpeg', // 商品图片
             goodsName: '橘栀虎虎珍珠斜跨链包', //商品名称
             goodsNum: 2, //商品数量
             goodsSpecification: '橘栀虎虎，玫瑰绒，金色', // 商品规格
@@ -103,7 +106,7 @@ Page({
           {
             goodsId: "0302", // 商品id
             isSelGoods: false, // 该商品是否选中
-            goodsImg: '../../images/baby.jpeg', // 商品图片
+            goodsImg: '/images/baby.jpeg', // 商品图片
             goodsName: '君至归来棉花娃娃', //商品名称
             goodsNum: 4, //商品数量
             goodsSpecification: '正常体，裸娃，普毛', // 商品规格
@@ -111,8 +114,8 @@ Page({
           },{
             goodsId: "0303", // 商品id
             isSelGoods: false, // 该商品是否选中
-            goodsImg: '../../images/baby.jpeg', // 商品图片
-            goodsName: '君至归来棉花娃娃', //商品名称
+            goodsImg: '/images/baby.jpeg', // 商品图片
+            goodsName: '君至归来棉花娃娃君至归来棉花娃娃君至归来棉花娃娃', //商品名称
             goodsNum: 5, //商品数量
             goodsSpecification: '正常体，裸娃，高温丝', // 商品规格
             goodsPrice: 511.29, // 商品价格

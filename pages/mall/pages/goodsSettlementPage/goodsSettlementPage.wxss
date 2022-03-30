@@ -1,31 +1,141 @@
 .pageContent {
-    /* width: 100vw; */
     height: 100vh;
     overflow-y: scroll;
 }
 
 .pageDetails {
-    padding: 10rpx;
+    padding: 10rpx 10rpx 150rpx;
 }
 
 /* 地址栏 */
-.addressBarWrap {
-    /* padding: 20rpx 10rpx; */
-}
-
 .addressBar {
-    /* width: 100%; */
+    min-height: 100rpx;
+    border-radius: 15rpx;
     padding: 10rpx;
     background-color: rgba(255, 255, 255, 0.8);
     display: flex;
     align-items: center;
+    font-size: 32rpx;
+    color: #ea9518;
 }
 
+/* 地址图标 */
 .otherFunImg {
     width: 40rpx;
     height: 40rpx;
     margin-right: 40rpx;
 }
+
+/* 地址内容 */
+.defultAddressWrap {
+    font-size: 28rpx;
+    width: 550rpx;
+}
+
+.phone {
+    margin-left: 20rpx;
+}
+
+/* 右三角 */
+.triangleImg {
+    margin-left: auto;
+}
+
+/* 商品详情栏 */
+.goodsBarWrap {
+    margin-top: 10rpx;
+}
+   
+.goodsBar, .priceBarWrap, .methodPayment{
+    border-radius: 15rpx;
+    padding: 10rpx;
+    background-color: rgba(255, 255, 255, 0.8);
+    font-size: 32rpx;
+    color: #ea9518;
+    margin-bottom: 10rpx;
+}
+
+.stroeNameWrap {
+    display: flex;
+    align-items: center;
+    color: #ea9518;
+}
+
+.storeHeaderImg {
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.stroeName {
+    margin-left: 10rpx;
+    font-weight: 600;
+}
+
+.goodsDetailsWrap {
+    margin-top: 20rpx;
+}
+
+.goodsDetails {
+    display: flex;
+    margin-bottom: 20rpx;
+}
+
+.goodsImg {
+    width: 200rpx;
+    height: 200rpx;
+    border-radius: 20rpx;
+    margin-right: 10rpx;
+}
+
+.goodsName {
+    max-width: 360rpx;
+    overflow: hidden;
+    height: 46rpx;
+}
+
+.goodsSpecification {
+    color: #999999;
+    font-size: 24rpx;
+}
+
+.goodsPriceNumWrap {
+    margin-left: auto;
+    text-align: right;
+}
+
+/* 配送服务 */
+.postageWrap {
+    display: flex;
+    align-items: center;
+    height: 80rpx;
+}
+
+.postageContent {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    max-width: 300rpx;
+}
+
+.postageDetails {
+    max-width: 250rpx;
+}
+
+.orderRemarkDetails {
+    max-width: 250rpx;
+    height: 50rpx;
+    overflow: hidden;
+}
+
+/* 支付方式 */
+.methodPayment {
+    display: flex;
+    align-items: center;
+}
+
+.selAllIcon {
+    margin-left: auto;
+}   
 
 /* 结算栏 */
 .settlementBarWrap {

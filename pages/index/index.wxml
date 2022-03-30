@@ -40,6 +40,12 @@
             <home-topic></home-topic>
           </swiper-item>
         </block>
+        <!-- 同城同担 -->
+        <block>
+          <swiper-item>
+            <home-city-wide></home-city-wide>
+          </swiper-item>
+        </block>
       </swiper>
     </view>
     <!-- 发贴 -->

@@ -5,20 +5,76 @@
   <view class="pageContent">
     <view class="pageDetails">
       <!-- 地址栏 -->
-      <view class="addressBarWrap">
-        <view class="addressBar">
-          <!-- 地址图标 -->
-          <image src="/images/siteIcon.png" class="otherFunImg"></image>
-          <!-- 地址 -->
-          <view class="" wx:if="isDefultAddress"></view>
-          <view class="" wx:else></view>
+      <view class="addressBar"  bindtap="selAddress">
+        <!-- 地址图标 -->
+        <image src="/images/siteIcon.png" class="otherFunImg"></image>
+        <!-- 地址 -->
+        <view class="defultAddressWrap" wx:if="{{isDefultAddress}}">
+          <!-- 姓名，电话，地址 -->
+          <view class="nameAndPhoneWrap">
+            <text>{{addressDetails.name}}</text>
+            <text class="phone">{{addressDetails.phone}}</text>
+          </view>
+          <view class="addressWrap">{{addressDetails.address}}</view>
         </view>
+        <view class="noDefultAddressWrap" wx:else>请选择收货地址</view>
+        <!-- 右箭头 -->
+        <image class="triangleImg" src="../../../../images/triangle.png" alt=""/>
       </view>
       <!-- 商品栏 -->
       <view class="goodsBarWrap">
+        <view class="goodsBar" wx:for="{{selGoodsList}}" wx:key="index">
+          <!-- 店铺名称 -->
+          <view class="stroeNameWrap">
+            <image class="storeHeaderImg" src="{{storeHeaderImg}}" alt=""/>
+            <text class="stroeName">{{item.stroeName}}</text>
+          </view>
+          <!-- 商品详情 -->
+          <view class="goodsDetailsWrap">
+            <view class="goodsDetails" wx:for="{{item.goodsList}}" wx:for-item="goodsItem" wx:key="index">
+              <image class="goodsImg" src="{{goodsItem.goodsImg}}"></image>
+              <view class="goodsMsgWrap">
+                <view class="goodsName">{{goodsItem.goodsName}}</view>
+                <view class="goodsSpecification">颜色分类：{{goodsItem.goodsSpecification}}</view>
+              </view>
+              <view class="goodsPriceNumWrap">
+                <view>￥{{goodsItem.goodsPrice}}</view>
+                <view>x{{goodsItem.goodsNum}}</view>
+              </view>
+            </view>
+          </view>
+          <!-- 配送服务（邮费情况） -->
+          <view class="postageWrap" bindtap="postageWin">
+            <view class="postageText">配送服务</view>
+            <view class="postageContent">
+              <text class="postageDetails">{{item.postage}}</text>
+              <image class="triangleImg" src="../../../../images/triangle.png" alt=""/>
+            </view>
+          </view>
+          <!-- 订单备注 -->
+          <view class="postageWrap" bindtap="orderRemarkWin">
+            <view class="postageText">订单备注</view>
+            <view class="postageContent">
+              <text class="orderRemarkDetails">{{item.orderRemark ? item.orderRemark : '无备注'}}</text>
+              <image class="triangleImg" src="../../../../images/triangle.png" alt=""/>
+            </view>
+          </view>
+        </view>
       </view>
       <!-- 价格栏 -->
       <view class="priceBarWrap">
+        <view class="priceTitle">价格明细</view>
+        <!-- 商品总价 -->
+        <view class="totalPriceWrap"></view>
+        <!-- 红包 -->
+        <view class="redEnvelope"></view>
+        <!-- 合计 -->
+        <view class="goodsTotalPrice"></view>
+      </view>
+      <!-- 支付方式 -->
+      <view class="methodPayment">
+        <text>微信支付</text>
+        <image class="selAllIcon" src="/images/selAll.png" alt=""/>
       </view>
     </view>
     <!-- 结算栏 -->
@@ -36,5 +92,11 @@
             <view class="confirmPayment" bindtap="confirmPayment">确认订单并支付</view>
         </view>
     </view>
+    <!-- 邮费详情弹窗 -->
+    <view class="postageDetailsWinWrap"></view>
+    <!-- 订单备注弹窗 -->
+    <view class="orderRemarkWinWrap"></view>
+    <!-- 顶部固定地址信息栏 -->
+    <view class="topAddressBarWrap"></view>
   </view>
 </view>
