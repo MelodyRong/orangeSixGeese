@@ -107,7 +107,7 @@
 .postageWrap {
     display: flex;
     align-items: center;
-    height: 80rpx;
+    min-height: 80rpx;
 }
 
 .postageContent {
@@ -127,7 +127,48 @@
     overflow: hidden;
 }
 
+/* 价格明细 */
+.totalPriceWrap {
+    display: flex;
+    align-items: center;
+    min-height: 80rpx;
+}
+
+.totaltext {
+    font-size: 30rpx;
+    color: #000000;
+}
+
+.totalNum {
+    font-size: 26rpx;
+    color: #999999;
+}
+
+.totalAmount {
+    margin-left: auto;
+    color: #000000;
+    font-weight: 600;
+}
+
+/* 红包 */
+.redEnvelope {
+    display: flex;
+    align-items: center;
+    min-height: 80rpx;
+}
+
+.redEnvelopeDetails {
+    margin-left: auto;
+    color: #999999;
+}
+
 /* 支付方式 */
+.weChatIcon {
+    width: 50rpx;
+    height: 50rpx;
+    margin-right: 10rpx;
+}
+
 .methodPayment {
     display: flex;
     align-items: center;
@@ -135,7 +176,74 @@
 
 .selAllIcon {
     margin-left: auto;
-}   
+    margin-right: 0;
+}  
+
+/* 配送服务详情弹窗 */
+.postageDetailsWin {
+    height: 800rpx;
+    padding: 20rpx;
+    position: relative;
+}
+
+.postageDetailsWintitle {
+    display: flex;
+    font-size: 38rpx;
+}
+
+.normalDistribution {
+    display: flex;
+    min-height: 80rpx;
+    align-items: center;
+    margin-top: 20rpx;
+}
+
+.postageWinTextWrap {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+.postageWinText {
+    margin-right: 10rpx;
+}
+
+.affirmBtn {
+    position: absolute;
+    z-index: 4;
+    bottom: 20rpx;
+    left: 50%;
+    transform: translate(-50%);
+    width: 95vw;
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+    background-color: #ea9518;
+    color: #ffffff;
+    font-size: 38rpx;
+    border-radius: 20rpx;
+}
+
+/* 订单备注弹窗 */
+.orderRemarkInpWrap {
+    width: 100%;
+    margin-top: 20rpx;
+    position: relative;
+}
+
+.orderRemarkInp {
+    border-radius: 20rpx;
+    border: 1px solid #ffffff;
+    padding: 10rpx;
+}
+
+.orderRemarkLength {
+    position: absolute;
+    right: 30rpx;
+    margin-top: -50rpx;
+    font-size: 32rpx;
+    color: #fca404;
+}
 
 /* 结算栏 */
 .settlementBarWrap {

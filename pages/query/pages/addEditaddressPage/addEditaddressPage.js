@@ -1,11 +1,11 @@
-// pages/query/pages/addressPage/addressPage.js
+// pages/query/pages/addEditaddressPage/addEditaddressPage.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    addressList: [], // 地址信息列表
+
   },
 
   /**
@@ -13,13 +13,6 @@ Page({
    */
   onLoad: function (options) {
 
-  },
-
-  // 添加/编辑新地址
-  addAddress () {
-    wx.navigateTo({
-      url: '/pages/query/pages/addEditaddressPage/addEditaddressPage',
-    })
   },
 
   /**

@@ -11,8 +11,12 @@ Page({
         storeHeaderImg: '/images/orange.png', // 店铺头像
         selAll: '/images/selAll.png', // 全选中
         selAll: '', // 选中图案
-        goodsNum: 0,
-        totalAmount: 222
+        goodsNum: 0, // 商品总数
+        totalAmount: 0, // 商品总价
+        postage: '', // 当前商品配送服务情况
+        orderRemark: '', // 订单备注内容
+        orderRemarkIndex: 0, // 订单备注位置
+        orderRemarklength: 0, // 订单备注长度
     },
 
     /**
@@ -51,8 +55,22 @@ Page({
 
     // 渲染选中商品数据
     getSelGoodsList () {
+        const selGoodsList = wx.getStorageSync('selCardData')
+        let totalAmount = 0
+        let totalNum = 0
+        let newSelGoodsList = []
+        selGoodsList.forEach((e, index) => {
+            e['orderRemark'] = ''
+            e.goodsList.forEach(i => {
+                totalNum = totalNum + i.goodsNum
+                totalAmount = Number(totalAmount) + Number(i.goodsNum * i.goodsPrice)
+            })
+            console.log(e, 'e')
+        });
         this.setData({
-            selGoodsList: wx.getStorageSync('selCardData')
+            selGoodsList: selGoodsList ,
+            goodsNum: totalNum, // 商品总数
+            totalAmount: totalAmount.toFixed(2) // 商品总价
         })
     },
 
@@ -64,18 +82,70 @@ Page({
     },
 
     // 查看配送服务详情
-    postageWin () {
-        console.log('查看配送服务弹窗')
+    postageWin (e) {
+        this.selectComponent('#postageDetailsWinWrap').showFrame()
+        console.log(e)
+        const postage = e.currentTarget.dataset.postage
+        this.setData({
+            postage: postage
+        })
+    },
+
+    // 关闭配送服务弹窗
+    postageAffirmBtn () {
+        this.selectComponent('#postageDetailsWinWrap').hideFrame()
+        this.setData({
+            postage: ''
+        })
     },
 
     // 查看订单备注详情
-    orderRemarkWin () {
-        console.log('查看和输入订单备注')
+    orderRemarkWin (e) {
+        console.log(e.currentTarget.dataset)
+        const orderRemark = e.currentTarget.dataset.orderRemark
+        const orderRemarkIndex = e.currentTarget.dataset.orderRemarkIndex
+        this.setData({
+            orderRemark: orderRemark === '无备注' ? '' : orderRemark,
+            orderRemarkIndex: orderRemarkIndex
+        })
+        this.selectComponent('#orderRemarkWinWrap').showFrame()
+    },
+
+    // 订单备注输入时字数长度
+    orderRemarkInp (e) {
+        this.setData({
+            orderRemark: e.detail.value,
+            orderRemarklength: e.detail.value.length
+        })
+    },
+
+    // 关闭订单备注详情
+    orderRemarkAffirmBtn () {
+        console.log(this.data.orderRemark, 'this.data.orderRemark')
+        console.log(this.data.selGoodsList)
+        this.data.selGoodsList[this.data.orderRemarkIndex].orderRemark = this.data.orderRemark
+        this.setData({
+            selGoodsList: this.data.selGoodsList, // 订单备注赋值
+            orderRemarklength: 0 // 订单备注数量归零
+        })
+        this.selectComponent('#orderRemarkWinWrap').hideFrame()
     },
 
     // 确认订单支付
     confirmPayment () {
         console.log('确认订单并支付')
+        /**
+         * 支付前需要判断是否选择收货地址
+         * 该商品是否已下架，
+         * 是否有库存，
+         * 库存数量是否大于购买数量，
+         * 然后再下单，生成订单后调支付接口，
+         * 支付成功后跳转订单详情页面，
+         * 支付失败跳转支付失败页面
+         * **/
+        wx.navigateTo({
+          url: '/pages/mall/pages/orderDetailsPage/orderDetailsPage',
+        })
     },
 
     /**

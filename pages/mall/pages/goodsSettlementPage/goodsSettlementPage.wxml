@@ -44,7 +44,7 @@
             </view>
           </view>
           <!-- 配送服务（邮费情况） -->
-          <view class="postageWrap" bindtap="postageWin">
+          <view class="postageWrap" bindtap="postageWin" data-postage="{{item.postage}}">
             <view class="postageText">配送服务</view>
             <view class="postageContent">
               <text class="postageDetails">{{item.postage}}</text>
@@ -52,10 +52,10 @@
             </view>
           </view>
           <!-- 订单备注 -->
-          <view class="postageWrap" bindtap="orderRemarkWin">
+          <view class="postageWrap" bindtap="orderRemarkWin" data-order-remark="{{item.orderRemark}}" data-order-remark-index="{{index}}">
             <view class="postageText">订单备注</view>
             <view class="postageContent">
-              <text class="orderRemarkDetails">{{item.orderRemark ? item.orderRemark : '无备注'}}</text>
+              <text class="orderRemarkDetails" >{{item.orderRemark ? item.orderRemark : '无备注'}}</text>
               <image class="triangleImg" src="../../../../images/triangle.png" alt=""/>
             </view>
           </view>
@@ -65,14 +65,26 @@
       <view class="priceBarWrap">
         <view class="priceTitle">价格明细</view>
         <!-- 商品总价 -->
-        <view class="totalPriceWrap"></view>
+        <view class="totalPriceWrap">
+          <text class="totaltext">商品总价</text>
+          <text class="totalNum">共{{goodsNum}}件宝贝</text>
+          <text class="totalAmount">￥{{totalAmount}}</text>
+        </view>
         <!-- 红包 -->
-        <view class="redEnvelope"></view>
+        <view class="redEnvelope">
+          <image class="weChatIcon" src="/images/redEnvelope.png"></image>
+          <text>红包</text>
+          <text class="redEnvelopeDetails">暂无可用红包</text>
+        </view>
         <!-- 合计 -->
-        <view class="goodsTotalPrice"></view>
+        <view class="goodsTotalPrice">
+          <text>合计</text>
+          <text class="totalAmount">￥{{totalAmount}}</text>
+        </view>
       </view>
       <!-- 支付方式 -->
       <view class="methodPayment">
+        <image class="weChatIcon" src="/images/weChat.png" alt=""/>
         <text>微信支付</text>
         <image class="selAllIcon" src="/images/selAll.png" alt=""/>
       </view>
@@ -93,9 +105,44 @@
         </view>
     </view>
     <!-- 邮费详情弹窗 -->
-    <view class="postageDetailsWinWrap"></view>
+    <bottom-frame id="postageDetailsWinWrap">
+      <view class="postageDetailsWin">
+        <!-- title -->
+        <view class="postageDetailsWintitle">
+          <view>配送服务</view>
+          <image class="selAllIcon" src="/images/closeIcon2.png" bindtap="postageAffirmBtn"></image>
+        </view>
+        <!-- 普通配送 -->
+        <view class="normalDistribution">
+          <text>普通配送</text>
+          <view class="postageWinTextWrap">
+            <text class="postageWinText">{{postage}}</text>
+            <image class="selAllIcon" src="/images/selAll.png" alt=""/>
+          </view>
+        </view>
+        <!-- 发货时间 -->
+        <!-- <view></view> -->
+        <!-- 确认按钮 -->
+        <view class="affirmBtn" bindtap="postageAffirmBtn">确定</view>
+      </view> 
+    </bottom-frame>
     <!-- 订单备注弹窗 -->
-    <view class="orderRemarkWinWrap"></view>
+    <bottom-frame id="orderRemarkWinWrap">
+      <view class="postageDetailsWin">
+        <!-- title -->
+        <view class="postageDetailsWintitle">
+          <view>订单备注</view>
+          <image class="selAllIcon" src="/images/closeIcon2.png" bindtap="orderRemarkAffirmBtn"></image>
+        </view>
+        <!-- 订单备注输入框 -->
+        <view class="orderRemarkInpWrap">
+          <textarea class="orderRemarkInp" style="width:92vw;height: 300rpx;border-radius: 20rpx;border: 2rpx solid #f2f2f2;padding: 10rpx;" placeholder="请提前和卖家沟通，以便更方便的为您提供服务" value="{{orderRemark}}" bindinput="orderRemarkInp" auto-focus maxlength="200" />
+          <text class="orderRemarkLength">{{orderRemarklength}}/200</text>
+        </view>
+        <!-- 确认按钮 -->
+        <view class="affirmBtn" bindtap="orderRemarkAffirmBtn">确定</view>
+      </view> 
+    </bottom-frame>
     <!-- 顶部固定地址信息栏 -->
     <view class="topAddressBarWrap"></view>
   </view>

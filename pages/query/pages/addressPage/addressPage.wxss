@@ -1,1 +1,23 @@
-/* pages/query/pages/addressPage/addressPage.wxss */
+.pageContent {
+  position: relative;
+  text-align: center;
+  height: 100vh;
+}
+
+
+/* 添加新地址btn */
+.addNewAddress {
+  position: absolute;
+  bottom: 20rpx;
+  z-index: 1;
+  left: 50%;
+  transform: translate(-50%);
+  width: 92vw;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  color: #ffffff;
+  font-size: 28rpx;
+  background-color: #ea9518;
+  border-radius: 10rpx;
+}

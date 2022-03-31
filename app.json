@@ -59,7 +59,8 @@
         "pages/refundAfterPage/refundAfterPage",
         "pages/classDetailsList/classDetailsList",
         "pages/goodsSettlementPage/goodsSettlementPage",
-        "pages/goodsDetailsPage/goodsDetailsPage"
+        "pages/goodsDetailsPage/goodsDetailsPage",
+        "pages/orderDetailsPage/orderDetailsPage"
       ]
     },
     {
@@ -80,7 +81,8 @@
         "pages/addPostDetailsPage/addPostDetailsPage",
         "pages/addVideoDetailsPage/addVideoDetailsPage",
         "pages/helpFeedbackPage/helpFeedbackPage",
-        "pages/addressPage/addressPage"
+        "pages/addressPage/addressPage",
+        "pages/addEditaddressPage/addEditaddressPage"
       ]
     }
   ],

@@ -1,1 +1,17 @@
-<text>我的地址</text>
+<view class="pageWrap">
+  <!-- 背景图 -->
+  <public-bgc></public-bgc>
+  <!-- 页面内容 -->
+  <view class="pageContent">
+    <!-- 地址列表 -->
+    <view class="addressListWrap">
+
+    </view>
+    <!-- 暂无地址信息 -->
+    <view class="noAddressList">
+      
+    </view>
+    <!-- 添加新地址 -->
+    <view class="addNewAddress" bindtap="addAddress">添加新地址</view>
+  </view>
+</view>

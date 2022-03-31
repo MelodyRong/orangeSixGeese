@@ -1,25 +1,19 @@
-// pages/query/pages/addressPage/addressPage.js
+// pages/mall/pages/orderDetailsPage/orderDetailsPage.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    addressList: [], // 地址信息列表
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
-  },
-
-  // 添加/编辑新地址
-  addAddress () {
-    wx.navigateTo({
-      url: '/pages/query/pages/addEditaddressPage/addEditaddressPage',
-    })
+    let pageStack = getCurrentPages() // 获取页面栈，支付成功将订单确认页从页面栈中删除
+    console.log(pageStack, 'pageStack')
   },
 
   /**
