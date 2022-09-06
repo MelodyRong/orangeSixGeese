@@ -2,6 +2,19 @@
   position: relative;
   text-align: center;
   height: 100vh;
+  background-color: rgba(255, 255, 255, .8);
+}
+
+/* 无地址数据 */
+.noAddressList {
+  position: relative;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.noAddressListIcon {
+  width: 350rpx;
 }
 
 

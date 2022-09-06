@@ -5,7 +5,25 @@ Page({
    * 页面的初始数据
    */
   data: {
-    addressList: [], // 地址信息列表
+    noAddressIcon: '/images/noAddressIcon.png', // 无地址数据icon
+    addressList: [
+      {
+        addressId: '', // 地址id
+        userId: '', // 用户id
+        areaCode: '', // 区号
+        name: '', // 地址名称
+        phone: '', // 地址电话
+        provinceCode: '', // 省份code码
+        province: '', // 地址省份
+        cityCode: '', // 城市code码
+        city: '', // 地址城市
+        countyCode: '', //区县code码
+        county: '' , // 区县
+        townCode: '', //村镇code码
+        town: '', // 村镇
+        detailedAddress: '', // 详细地址
+      }
+    ], // 地址信息列表
   },
 
   /**

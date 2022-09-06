@@ -36,7 +36,7 @@ Page({
           addPostList: that.data.addPostList.concat(res.tempFiles) // 选中的数据
         })
         // 更新缓存中图片数据
-        wx.setStorageSync('addPostList', JSON.stringify(this.data.addDataList))
+        wx.setStorageSync('addPostList', JSON.stringify(that.data.addDataList))
       },
       fail(failRes) {
 

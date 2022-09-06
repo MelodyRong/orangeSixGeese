@@ -117,7 +117,7 @@ Page({
         }
       },
       fail(failRes) {
-
+        console.log(failRes,'选择图片报错了，没有跳转新的地址')
       }
     })
   },
